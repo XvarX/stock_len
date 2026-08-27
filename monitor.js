@@ -21,7 +21,9 @@ const R = require('./lib/report');
 const IND = require('./lib/indicators');
 
 const CFG = JSON.parse(fs.readFileSync(path.join(__dirname, 'config.json'), 'utf-8'));
-const CONF = Object.assign({ aRequireVwap: true, bRequireStabilize: true, bRetractVolRatioMax: 0.8 }, CFG.confirm);
+const CONF = Object.assign(
+  { aRequireVwap: true, aVolRatioMin: 2, marketConfirm: true, marketPctMin: 0, bRequireStabilize: true, bRetractVolRatioMax: 0.8 },
+  CFG.confirm);
 const loopMode = process.argv.includes('--loop');
 const forceMode = process.argv.includes('--force');
 const LOCK = path.join(__dirname, 'journal', '.monitor.lock');
@@ -90,8 +92,27 @@ async function tick(client, firedSet) {
   }
   if (!candA.length && !candB.length) return;
 
-  // 需要分时确认的标的去重取数(fresh)
+  // 需要分时确认的标的去重取数(fresh); A卡候选存在时附带大盘同向校验
   const uniq = [...new Set([...candA.map((x) => x.code), ...candB.map((x) => x.code)])];
+  let mkt = null;
+  if (candA.length && CONF.marketConfirm) {
+    try {
+      mkt = await f.benchmarkSnapshot();
+      const vals = Object.values(mkt).map((v) => v.pct).filter(isFinite);
+      const up = vals.some((v) => v >= CONF.marketPctMin);
+      if (!up) { // 两市皆弱: A卡整体挂起, 只记INFO
+        for (const it of candA) {
+          if (!firedSet.has('INFO·市场弱|' + it.code)) {
+            console.log(`[${hm}] ⏳ 市场同向不满足(${JSON.stringify(mkt)}), ${it.code} A卡挂起`);
+            J.appendAlert(today, { kind: 'INFO·市场弱', code: it.code, text: `两市均低于${CONF.marketPctMin}%` });
+            firedSet.add('INFO·市场弱|' + it.code);
+          }
+        }
+        candA.length = 0;
+      }
+    } catch (e) { console.log(`[${hm}] 大盘快照失败, 跳过同向校验: ${e.message}`); }
+  }
+  if (!candA.length && !candB.length) return;
   for (let i = 0; i < uniq.length; i += 10) {
     const chunk = uniq.slice(i, i + 10);
     let intradayMap = {};
@@ -103,14 +124,16 @@ async function tick(client, firedSet) {
       const p = px[it.code].latest;
       const cf = IND.evaluateConfirmations(intradayMap[it.code], { px: p, stabilize: false });
       const vwapOk = !CONF.aRequireVwap || cf.aboveVwap === true;
-      if (vwapOk) {
-        R.alertBanner('A·强势突破', it.code, it.name, `现价 ${p} ≥ 触发 ${it.A.trigger} | 站上VWAP(${cf.vwap ? cf.vwap.toFixed(2) : '-'})已确认 | 止损 ${it.A.stop}`);
+      const volOk = !isFinite(cf.breakoutVolRatio) || cf.breakoutVolRatio >= CONF.aVolRatioMin;
+      const confTxt = `VWAP(${cf.vwap ? cf.vwap.toFixed(2) : '-'}):${vwapOk ? '过' : '未过'} 放量比(${isFinite(cf.breakoutVolRatio) ? cf.breakoutVolRatio.toFixed(1) : '-'}/${CONF.aVolRatioMin}):${volOk ? '足' : '不足'}`;
+      if (vwapOk && volOk) {
+        R.alertBanner('A·强势突破', it.code, it.name, `现价 ${p} ≥ 触发 ${it.A.trigger} | ${confTxt} | 止损 ${it.A.stop}`);
         process.stdout.write('\x07');
-        J.appendAlert(today, { kind: 'A·突破', code: it.code, text: `现价${p}≥${it.A.trigger}, VWAP确认(${cf.vwap?.toFixed?.(2)})` });
+        J.appendAlert(today, { kind: 'A·突破', code: it.code, text: `现价${p}≥${it.A.trigger}; ${confTxt}` });
         firedSet.add(key);
       } else if (!firedSet.has('INFO·待确认|' + it.code)) {
-        console.log(`[${hm}] ⏳ ${it.code} ${it.name} 价过触发线但未站上VWAP(${cf.vwap?.toFixed?.(2)}), 待确认`);
-        J.appendAlert(today, { kind: 'INFO·待确认', code: it.code, text: `价达${p}>${it.A.trigger}但VWAP未过` });
+        console.log(`[${hm}] ⏳ ${it.code} ${it.name} 价过触发线但确认不足: ${confTxt}`);
+        J.appendAlert(today, { kind: 'INFO·待确认', code: it.code, text: `价达${p}>${it.A.trigger},${confTxt}` });
         firedSet.add('INFO·待确认|' + it.code);
       }
     }
