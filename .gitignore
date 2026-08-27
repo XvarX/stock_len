@@ -1,0 +1,13 @@
+# 密钥绝不入库
+ifind_key.json
+*.key
+.env
+
+# 运行时产物
+cache/
+journal/.monitor.lock
+journal/.heartbeat.json
+
+# 系统文件
+Thumbs.db
+.DS_Store

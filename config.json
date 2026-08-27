@@ -1,0 +1,35 @@
+{
+  "ifindSkillPath": "C:/Users/admin/.zcode/skills/ifind-finance-data/call-node.js",
+  "dailyCalDays": 100,
+  "analysisWindow": 20,
+  "throttle": { "maxConcurrent": 2, "minGapMs": 400 },
+  "benchmarks": ["上证指数", "创业板指"],
+  "breakout": {
+    "levelLookback": 20,
+    "triggerAboveLevel": 0.003,
+    "maxGapAbandon": 0.05,
+    "zoneTopPct": 0.02
+  },
+  "pullback": {
+    "keyLevels": ["MA10", "platform"],
+    "retractVolumeRatioMax": 0.8,
+    "stopBelowKeyPct": 0.03
+  },
+  "risk": {
+    "stopPct": 5,
+    "posPerStockMax": 0.3,
+    "dailyStopLossLimit": 2
+  },
+  "confirm": { "aRequireVwap": true, "bRequireStabilize": true, "bRetractVolRatioMax": 0.8 },
+  "poll": {
+    "intervalSec": 60,
+    "sessions": [["09:31", "11:30"], ["13:01", "15:00"]]
+  },
+  "scan": {
+    "bigGainPct": 7,
+    "boardTopN": 2,
+    "candidateN": 8,
+    "minTurnoverRate": 3,
+    "minMarketCapYi": 30
+  }
+}
