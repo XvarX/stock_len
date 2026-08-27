@@ -1,0 +1,816 @@
+{
+  "version": "stock-lens-report/1",
+  "generatedAt": "2026-08-27T16:06:18.630Z",
+  "mode": "scan",
+  "scanSource": "芯片概念(大涨集群24只), 专精特新(大涨集群21只)",
+  "dataDate": "20260827",
+  "temperature": {
+    "overall": "watch",
+    "label": "观望",
+    "detail": [
+      {
+        "name": "上证指数",
+        "close": 3956.571,
+        "aboveMa20": true,
+        "mom5": 1.35,
+        "regime": "attack"
+      },
+      {
+        "name": "创业板指",
+        "close": 3473.3547,
+        "aboveMa20": false,
+        "mom5": -0.55,
+        "regime": "defend"
+      }
+    ]
+  },
+  "benchmarks": {
+    "cum20": 7.4
+  },
+  "stocks": [
+    {
+      "code": "301317",
+      "name": "鑫磊股份",
+      "industry": "机械设备",
+      "board": "污水处理",
+      "score": {
+        "composite": 49,
+        "grade": "弱（放弃）"
+      },
+      "position": {
+        "tag": "高位整理",
+        "percentile": 83,
+        "ma": {
+          "m5": 43.574,
+          "m10": 44.06700000000001,
+          "m20": 43.77249999999995,
+          "m60": 52.107
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 47.198240946886905,
+          "d": 40.22337429424619,
+          "j": 61.14797425216834
+        },
+        "rsi14": 51.0603297137279,
+        "volumeHealth": {
+          "upDownRatio": 1.150079970135861,
+          "accel": 1.4891951991470274
+        },
+        "blowoff": {
+          "date": "20260826",
+          "daysAgo": 1,
+          "pct": -9.5768
+        }
+      },
+      "intraday": null,
+      "cards": {
+        "A": {
+          "status": "禁用",
+          "trigger": 48.16,
+          "zone": [
+            48.16,
+            48.98
+          ],
+          "stop": 45.75,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "禁用",
+          "keyLevel": 44.07,
+          "zone": [
+            43.63,
+            44.51
+          ],
+          "stop": 42.75
+        }
+      },
+      "notes": [
+        "综合评分49(弱): 不建议参与"
+      ]
+    },
+    {
+      "code": "920178",
+      "name": "锐翔智能",
+      "industry": "机械设备",
+      "board": "苹果概念",
+      "score": {
+        "composite": 29,
+        "grade": "弱（放弃）"
+      },
+      "position": {
+        "tag": "破位下行",
+        "percentile": 38,
+        "ma": {
+          "m5": 91.1960000000001,
+          "m10": 94.96699999999991,
+          "m20": 95.87449999999998,
+          "m60": 113.74233333333336
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 23.462407270322487,
+          "d": 23.973903426955143,
+          "j": 22.439414957057174
+        },
+        "rsi14": 44.27227564956791,
+        "volumeHealth": {
+          "upDownRatio": 0.4797187403785221,
+          "accel": 5.424346828911836
+        },
+        "blowoff": null
+      },
+      "intraday": null,
+      "cards": {
+        "A": {
+          "status": "禁用",
+          "trigger": 115.2,
+          "zone": [
+            115.2,
+            117.16
+          ],
+          "stop": 109.44,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "禁用",
+          "keyLevel": 94.97,
+          "zone": [
+            94.02,
+            95.92
+          ],
+          "stop": 92.12
+        }
+      },
+      "notes": [
+        "个股破位：仅观望",
+        "综合评分29(弱): 不建议参与"
+      ]
+    },
+    {
+      "code": "300817",
+      "name": "双飞集团",
+      "industry": "机械设备",
+      "board": "新能源汽车",
+      "score": {
+        "composite": 80,
+        "grade": "强（可操作）"
+      },
+      "position": {
+        "tag": "创阶段新高",
+        "percentile": 57,
+        "ma": {
+          "m5": 15.43599999999999,
+          "m10": 15.511000000000006,
+          "m20": 15.532999999999998,
+          "m60": 16.047666666666668
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 38.17218841618461,
+          "d": 37.511985028893506,
+          "j": 39.49259519076682
+        },
+        "rsi14": 58.475968998178374,
+        "volumeHealth": {
+          "upDownRatio": 1.0336401135328694,
+          "accel": 1.5330073393483625
+        },
+        "blowoff": null
+      },
+      "intraday": null,
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 17.78,
+          "zone": [
+            17.78,
+            18.08
+          ],
+          "stop": 16.89,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 15.51,
+          "zone": [
+            15.35,
+            15.67
+          ],
+          "stop": 15.04
+        }
+      },
+      "notes": []
+    },
+    {
+      "code": "688478",
+      "name": "晶升股份",
+      "industry": "电子",
+      "board": "海峡两岸",
+      "score": {
+        "composite": 63,
+        "grade": "中（观察）"
+      },
+      "position": {
+        "tag": "中继修复",
+        "percentile": 65,
+        "ma": {
+          "m5": 48.627999999999965,
+          "m10": 50.19699999999999,
+          "m20": 47.971999999999994,
+          "m60": 58.41600000000001
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 31.86850544943904,
+          "d": 35.900666039691174,
+          "j": 23.804184268934776
+        },
+        "rsi14": 49.843301182594,
+        "volumeHealth": {
+          "upDownRatio": 1.193016598932758,
+          "accel": 0.7500569932592177
+        },
+        "blowoff": null
+      },
+      "intraday": null,
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 57.37,
+          "zone": [
+            57.37,
+            58.34
+          ],
+          "stop": 54.5,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 50.2,
+          "zone": [
+            49.7,
+            50.7
+          ],
+          "stop": 48.69
+        }
+      },
+      "notes": []
+    },
+    {
+      "code": "301518",
+      "name": "长华化学",
+      "industry": "基础化工",
+      "board": "新能源汽车",
+      "score": {
+        "composite": 13,
+        "grade": "弱（放弃）"
+      },
+      "position": {
+        "tag": "破位下行",
+        "percentile": 36,
+        "ma": {
+          "m5": 24.638000000000034,
+          "m10": 25.314000000000014,
+          "m20": 25.222500000000007,
+          "m60": 26.005000000000006
+        },
+        "macdCross": "dead",
+        "kdj": {
+          "k": 27.433762577798685,
+          "d": 27.019817367728024,
+          "j": 28.261652997940004
+        },
+        "rsi14": 48.22492111448371,
+        "volumeHealth": {
+          "upDownRatio": 1.2735150544640716,
+          "accel": 1.156422033297436
+        },
+        "blowoff": {
+          "date": "20260826",
+          "daysAgo": 1,
+          "pct": -10.0158
+        }
+      },
+      "intraday": null,
+      "cards": {
+        "A": {
+          "status": "禁用",
+          "trigger": 28.77,
+          "zone": [
+            28.77,
+            29.25
+          ],
+          "stop": 27.33,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "禁用",
+          "keyLevel": 25.31,
+          "zone": [
+            25.06,
+            25.56
+          ],
+          "stop": 24.55
+        }
+      },
+      "notes": [
+        "个股破位：仅观望",
+        "综合评分13(弱): 不建议参与"
+      ]
+    }
+  ],
+  "guards": [
+    "观望档: 轻仓试错"
+  ],
+  "risks": [
+    "价量推断非资金实测",
+    "趋势最强不等于连板预期",
+    "仅供研究参考不构成投资建议"
+  ],
+  "timing": {
+    "totalMs": 224528,
+    "calls": [
+      {
+        "name": "stock.search_stocks",
+        "ok": true,
+        "ms": 527
+      },
+      {
+        "name": "stock.search_stocks",
+        "ok": true,
+        "ms": 159
+      },
+      {
+        "name": "stock.search_stocks",
+        "ok": true,
+        "ms": 102
+      },
+      {
+        "name": "stock.search_stocks",
+        "ok": true,
+        "ms": 187
+      },
+      {
+        "name": "stock.search_stocks",
+        "ok": true,
+        "ms": 419
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2013
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2031
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1927
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2752
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1779
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1874
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1896
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2223
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2573
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 17280
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2085
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2573
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2591
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2657
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2242
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2268
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1715
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1753
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2513
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2571
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1846
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2014
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1978
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2354
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1905
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 3601
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2543
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 3003
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1729
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1737
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2054
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2447
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1858
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2190
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1966
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2504
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2129
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2850
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1908
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2297
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1883
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2801
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1935
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2085
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1989
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2469
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1942
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2415
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1891
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2143
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2649
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2665
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1905
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1950
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1835
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2053
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1612
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2021
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1813
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2375
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2248
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2978
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1959
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2045
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2191
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2597
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1760
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2156
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 3665
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 4120
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2628
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 3089
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 60
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 6600
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 2096
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2721
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 3339
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 59
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 4053
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 2316
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2610
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2962
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 80
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 3795
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 2945
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 1797
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 1517
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 69
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 5160
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 2753
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 106
+      }
+    ]
+  }
+}

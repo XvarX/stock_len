@@ -1,0 +1,745 @@
+{
+  "version": "stock-lens-report/1",
+  "generatedAt": "2026-08-27T15:59:51.415Z",
+  "mode": "scan",
+  "scanSource": "芯片概念(大涨集群15只), 新能源汽车(大涨集群12只)",
+  "dataDate": "20260827",
+  "temperature": {
+    "overall": "watch",
+    "label": "观望",
+    "detail": [
+      {
+        "name": "上证指数",
+        "close": 3956.571,
+        "aboveMa20": true,
+        "mom5": 1.35,
+        "regime": "attack"
+      },
+      {
+        "name": "创业板指",
+        "close": 3473.3547,
+        "aboveMa20": false,
+        "mom5": -0.55,
+        "regime": "defend"
+      }
+    ]
+  },
+  "benchmarks": {
+    "cum20": 7.4
+  },
+  "stocks": [
+    {
+      "code": "600641",
+      "name": "先导基电",
+      "industry": "电子",
+      "board": "创投",
+      "score": {
+        "composite": 87,
+        "grade": "强（可操作）"
+      },
+      "position": {
+        "tag": "高位整理",
+        "percentile": 74,
+        "ma": {
+          "m5": 32.218000000000025,
+          "m10": 33.314,
+          "m20": 31.494499999999995,
+          "m60": 33.32533333333334
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 34.99357859992071,
+          "d": 35.48727502644855,
+          "j": 34.00618574686503
+        },
+        "rsi14": 53.80411107710173,
+        "volumeHealth": {
+          "upDownRatio": 1.2198238868612643,
+          "accel": 0.8158679793583472
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 32.60037061190202,
+        "giveupRatio": 0,
+        "earlyVolShare": 90.65086146206127,
+        "high": 34,
+        "highTime": "11:08",
+        "low": 30.92,
+        "lowTime": "09:43",
+        "bestRuns": [
+          {
+            "till": "11:03",
+            "gain": 2.477821963903337
+          },
+          {
+            "till": "11:07",
+            "gain": 1.8964479229379938
+          },
+          {
+            "till": "11:10",
+            "gain": 1.674641148325362
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 38.11,
+          "zone": [
+            38.11,
+            38.76
+          ],
+          "stop": 36.2,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 33.31,
+          "zone": [
+            32.98,
+            33.64
+          ],
+          "stop": 32.31
+        }
+      },
+      "notes": []
+    },
+    {
+      "code": "603319",
+      "name": "美湖股份",
+      "industry": "汽车",
+      "board": "新能源汽车",
+      "score": {
+        "composite": 96,
+        "grade": "强（可操作）"
+      },
+      "position": {
+        "tag": "创阶段新高",
+        "percentile": 100,
+        "ma": {
+          "m5": 26.819999999999993,
+          "m10": 26.88500000000001,
+          "m20": 26.299500000000002,
+          "m60": 29.994833333333343
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 65.5468118511563,
+          "d": 54.650091046430134,
+          "j": 87.34025346060866
+        },
+        "rsi14": 59.211757465755376,
+        "volumeHealth": {
+          "upDownRatio": 1.0527766539465202,
+          "accel": 0.9787778647431107
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 28.238730710316524,
+        "giveupRatio": 0,
+        "earlyVolShare": 47.84147425670593,
+        "high": 29.45,
+        "highTime": "14:22",
+        "low": 26.77,
+        "lowTime": "09:30",
+        "bestRuns": [
+          {
+            "till": "09:35",
+            "gain": 3.100485618229376
+          },
+          {
+            "till": "14:22",
+            "gain": 2.1859819569743255
+          },
+          {
+            "till": "14:19",
+            "gain": 1.917044266294865
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 29.54,
+          "zone": [
+            29.54,
+            30.04
+          ],
+          "stop": 28.06,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 26.89,
+          "zone": [
+            26.62,
+            27.16
+          ],
+          "stop": 26.08
+        }
+      },
+      "notes": []
+    },
+    {
+      "code": "002980",
+      "name": "华盛昌",
+      "industry": "电力设备",
+      "board": "物联网",
+      "score": {
+        "composite": 87,
+        "grade": "强（可操作）"
+      },
+      "position": {
+        "tag": "高位整理",
+        "percentile": 87,
+        "ma": {
+          "m5": 96.35199999999998,
+          "m10": 97.502,
+          "m20": 87.87850000000005,
+          "m60": 99.2425
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 48.17432326699562,
+          "d": 53.907065524897156,
+          "j": 36.708838751192545
+        },
+        "rsi14": 58.5782937744525,
+        "volumeHealth": {
+          "upDownRatio": 1.1049886375599958,
+          "accel": 1.22713275422019
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 99.34949595365725,
+        "giveupRatio": 0,
+        "earlyVolShare": 97.46134739443542,
+        "high": 102.05,
+        "highTime": "09:59",
+        "low": 94.09,
+        "lowTime": "09:31",
+        "bestRuns": [
+          {
+            "till": "09:57",
+            "gain": 3.0863566683699606
+          },
+          {
+            "till": "09:35",
+            "gain": 2.8797468354430533
+          },
+          {
+            "till": "10:37",
+            "gain": 2.2360999194198206
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 108.11,
+          "zone": [
+            108.11,
+            109.95
+          ],
+          "stop": 102.7,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 97.5,
+          "zone": [
+            96.53,
+            98.48
+          ],
+          "stop": 94.58
+        }
+      },
+      "notes": []
+    },
+    {
+      "code": "600330",
+      "name": "天通股份",
+      "industry": "电子",
+      "board": "乡村振兴",
+      "score": {
+        "composite": 70,
+        "grade": "中（观察）"
+      },
+      "position": {
+        "tag": "高位整理",
+        "percentile": 95,
+        "ma": {
+          "m5": 27.28000000000002,
+          "m10": 27.279000000000007,
+          "m20": 24.175500000000003,
+          "m60": 25.531333333333347
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 67.14668301801653,
+          "d": 66.79493647497934,
+          "j": 67.85017610409093
+        },
+        "rsi14": 62.4828617254351,
+        "volumeHealth": {
+          "upDownRatio": 0.35778026810069613,
+          "accel": 0.0013409129771747733
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 28.27225539777763,
+        "giveupRatio": 0,
+        "earlyVolShare": 89.13344390664265,
+        "high": 29.15,
+        "highTime": "10:54",
+        "low": 26.8,
+        "lowTime": "09:32",
+        "bestRuns": [
+          {
+            "till": "10:24",
+            "gain": 1.6709044678532514
+          },
+          {
+            "till": "09:37",
+            "gain": 1.5997023809523725
+          },
+          {
+            "till": "10:13",
+            "gain": 1.42804833394361
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 29.96,
+          "zone": [
+            29.96,
+            30.47
+          ],
+          "stop": 28.46,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 27.28,
+          "zone": [
+            27.01,
+            27.55
+          ],
+          "stop": 26.46
+        }
+      },
+      "notes": []
+    },
+    {
+      "code": "603002",
+      "name": "宏昌电子",
+      "industry": "电子",
+      "board": "3D打印",
+      "score": {
+        "composite": 81,
+        "grade": "强（可操作）"
+      },
+      "position": {
+        "tag": "高位整理",
+        "percentile": 72,
+        "ma": {
+          "m5": 15.996000000000004,
+          "m10": 16.41899999999999,
+          "m20": 15.195999999999989,
+          "m60": 17.631999999999994
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 33.895004540784335,
+          "d": 39.71231623201199,
+          "j": 22.260381158329025
+        },
+        "rsi14": 55.77172703668556,
+        "volumeHealth": {
+          "upDownRatio": 0.8761037832429938,
+          "accel": 0.9375418682615189
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 16.46864470200764,
+        "giveupRatio": 0,
+        "earlyVolShare": 97.26649267229108,
+        "high": 16.91,
+        "highTime": "09:53",
+        "low": 15.64,
+        "lowTime": "09:30",
+        "bestRuns": [
+          {
+            "till": "09:50",
+            "gain": 4.117280099812848
+          },
+          {
+            "till": "09:51",
+            "gain": 3.8961038961038863
+          },
+          {
+            "till": "09:48",
+            "gain": 3.7831021437578993
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 19.06,
+          "zone": [
+            19.06,
+            19.38
+          ],
+          "stop": 18.11,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 16.42,
+          "zone": [
+            16.26,
+            16.58
+          ],
+          "stop": 15.93
+        }
+      },
+      "notes": []
+    }
+  ],
+  "guards": [
+    "观望档: 轻仓试错"
+  ],
+  "risks": [
+    "价量推断非资金实测",
+    "趋势最强不等于连板预期",
+    "仅供研究参考不构成投资建议"
+  ],
+  "timing": {
+    "totalMs": 128781,
+    "calls": [
+      {
+        "name": "stock.search_stocks",
+        "ok": true,
+        "ms": 277
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1875
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2675
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1706
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1905
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2285
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2315
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1879
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1939
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1687
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1960
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1801
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2656
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2187
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2525
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1909
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1989
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1648
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2389
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1793
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2087
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1912
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2044
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1796
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2203
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1951
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2159
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2094
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2462
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1676
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2018
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1524
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2115
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1524
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2215
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1810
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2050
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1915
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1922
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2153
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2512
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1821
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2247
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1772
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2016
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1855
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1911
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 3506
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 2745
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 130
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 3472
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 2286
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 109
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 3628
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 3012
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2669
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2960
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 101
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 3296
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 2791
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 1981
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2840
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 91
+      }
+    ]
+  }
+}

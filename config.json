@@ -27,6 +27,8 @@
   },
   "scan": {
     "bigGainPct": 7,
+    "limitUpOnly": true,
+    "rankBy": "flow",
     "boardTopN": 2,
     "probeN": 40,
     "candidateN": 5,
