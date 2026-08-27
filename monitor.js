@@ -22,7 +22,7 @@ const IND = require('./lib/indicators');
 
 const CFG = JSON.parse(fs.readFileSync(path.join(__dirname, 'config.json'), 'utf-8'));
 const CONF = Object.assign(
-  { aRequireVwap: true, aVolRatioMin: 2, marketConfirm: true, marketPctMin: 0, bRequireStabilize: true, bRetractVolRatioMax: 0.8 },
+  { aRequireVwap: true, aVolRatioMin: 2, marketConfirm: true, marketPctMin: 0, sectorConfirm: true, sectorCacheSec: 300, bRequireStabilize: true, bRetractVolRatioMax: 0.8 },
   CFG.confirm);
 const loopMode = process.argv.includes('--loop');
 const forceMode = process.argv.includes('--force');
@@ -76,7 +76,7 @@ async function tick(client, firedSet) {
   }
 
   /* 阶段二: 对越过价格线的标的拉当日分时做确认校验 */
-  const candA = [], candB = [];
+  let candA = [], candB = [];
   for (const it of plan.items) {
     const s = px[it.code];
     if (!s || !isFinite(s.latest)) continue;
@@ -111,6 +111,26 @@ async function tick(client, firedSet) {
         candA.length = 0;
       }
     } catch (e) { console.log(`[${hm}] 大盘快照失败, 跳过同向校验: ${e.message}`); }
+  }
+  if (!candA.length && !candB.length) return;
+
+  // 板块同向(sector_data真值, 按板块TTL缓存): 所属板块当日涨跌幅低于阈值则A卡挂起
+  if (candA.length && CONF.sectorConfirm) {
+    const candA2 = [];
+    const boards = [...new Set(candA.map((x) => x.board).filter(Boolean))];
+    for (const b of boards) await f.sectorPct(b, CONF.sectorCacheSec);
+    for (const it of candA) {
+      if (!it.board) { candA2.push(it); continue; }
+      const bp = f._sec?.[it.board]?.pct;
+      if (bp == null || !isFinite(bp)) { candA2.push(it); continue; } // 查询失败不拦截
+      if (bp >= CONF.marketPctMin) { candA2.push(it); continue; }
+      if (!firedSet.has('INFO·板块弱|' + it.code)) {
+        console.log(`[${hm}] ⏳ ${it.code} ${it.name} 板块[${it.board}]今日${bp.toFixed(2)}%<${CONF.marketPctMin}%, A卡挂起`);
+        J.appendAlert(today, { kind: 'INFO·板块弱', code: it.code, text: `板块${it.board}${bp.toFixed(2)}%弱于阈值` });
+        firedSet.add('INFO·板块弱|' + it.code);
+      }
+    }
+    candA = candA2;
   }
   if (!candA.length && !candB.length) return;
   for (let i = 0; i < uniq.length; i += 10) {
