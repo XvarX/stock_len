@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-27T12:44:15.044Z",
-  "sourceMode": "scan",
-  "scanSource": "专精特新(大涨集群4只), 芯片概念(大涨集群3只)",
+  "generatedAt": "2026-08-27T14:15:04.147Z",
+  "sourceMode": "night",
+  "scanSource": null,
   "temperature": {
     "overall": "watch",
     "label": "观望"
@@ -15,86 +15,50 @@
   "targetDate": "2026-08-28",
   "items": [
     {
-      "code": "001309",
-      "name": "德明利",
-      "board": "中证500成份股",
-      "prevClose": 429.76,
-      "score": 31,
+      "code": "600519",
+      "name": "贵州茅台",
+      "board": "西部大开发",
+      "prevClose": 1292.3,
+      "score": 27,
       "A": {
         "status": "禁用",
-        "forbidReasons": [],
-        "trigger": 452,
-        "zone": [
-          452,
-          459.66
+        "forbidReasons": [
+          "个股破位：仅观望"
         ],
-        "stop": 429.4,
+        "trigger": 1367.44,
+        "zone": [
+          1367.44,
+          1390.62
+        ],
+        "stop": 1299.07,
         "holdDays": "1-5",
         "confirm": "盘中价≥触发价 且 分时站上VWAP 且 板块同向上涨",
-        "desc": "突破20日高点450.65"
+        "desc": "突破20日高点1363.35"
       },
       "B": {
         "status": "禁用",
-        "forbidReasons": [],
+        "forbidReasons": [
+          "个股破位：仅观望"
+        ],
         "keyLevels": {
-          "MA10": 410.38,
-          "platformLow": 347
+          "MA10": 1300.9,
+          "platformLow": 1270.33
         },
         "key": "MA10为主",
         "zone": [
-          406.28,
-          414.48
+          1287.89,
+          1313.91
         ],
-        "stop": 398.07,
+        "stop": 1261.87,
         "holdDays": "1-5",
         "confirm": "缩量回踩带内后收出企稳阳线(回调段量<近5日均量×0.8)",
         "desc": "回踩关键位低吸"
       },
       "notes": [
         "弱（放弃）",
-        "高位整理",
-        "综合评分31(弱): 不建议参与"
-      ]
-    },
-    {
-      "code": "688790",
-      "name": "昂瑞微",
-      "board": "智能穿戴",
-      "prevClose": 114.1,
-      "score": 90,
-      "A": {
-        "status": "待触发",
-        "forbidReasons": [],
-        "trigger": 114.44,
-        "zone": [
-          114.44,
-          116.38
-        ],
-        "stop": 108.72,
-        "holdDays": "1-5",
-        "confirm": "盘中价≥触发价 且 分时站上VWAP 且 板块同向上涨",
-        "desc": "突破20日高点114.1"
-      },
-      "B": {
-        "status": "待触发",
-        "forbidReasons": [],
-        "keyLevels": {
-          "MA10": 100.01,
-          "platformLow": 88.18
-        },
-        "key": "MA10为主",
-        "zone": [
-          99.01,
-          101.01
-        ],
-        "stop": 97.01,
-        "holdDays": "1-5",
-        "confirm": "缩量回踩带内后收出企稳阳线(回调段量<近5日均量×0.8)",
-        "desc": "回踩关键位低吸"
-      },
-      "notes": [
-        "强（可操作）",
-        "创阶段新高"
+        "破位下行",
+        "个股破位：仅观望",
+        "综合评分27(弱): 不建议参与"
       ]
     },
     {
@@ -141,7 +105,7 @@
     {
       "code": "301666",
       "name": "大普微",
-      "board": "DeepSeek概念",
+      "board": "新股与次新股",
       "prevClose": 469.2,
       "score": 53,
       "A": {
@@ -219,6 +183,47 @@
       "notes": [
         "强（可操作）",
         "创阶段新高"
+      ]
+    },
+    {
+      "code": "300489",
+      "name": "光智科技",
+      "board": "新能源汽车",
+      "prevClose": 242.04,
+      "score": 84,
+      "A": {
+        "status": "待触发",
+        "forbidReasons": [],
+        "trigger": 277.83,
+        "zone": [
+          277.83,
+          282.54
+        ],
+        "stop": 263.94,
+        "holdDays": "1-5",
+        "confirm": "盘中价≥触发价 且 分时站上VWAP 且 板块同向上涨",
+        "desc": "突破20日高点277"
+      },
+      "B": {
+        "status": "待触发",
+        "forbidReasons": [],
+        "keyLevels": {
+          "MA10": 229.73,
+          "platformLow": 137.51
+        },
+        "key": "MA10为主",
+        "zone": [
+          227.43,
+          232.03
+        ],
+        "stop": 222.84,
+        "holdDays": "1-5",
+        "confirm": "缩量回踩带内后收出企稳阳线(回调段量<近5日均量×0.8)",
+        "desc": "回踩关键位低吸"
+      },
+      "notes": [
+        "强（可操作）",
+        "高位整理"
       ]
     },
     {

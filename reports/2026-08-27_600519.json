@@ -1,0 +1,165 @@
+{
+  "version": "stock-lens-report/1",
+  "generatedAt": "2026-08-27T13:42:33.091Z",
+  "mode": "night",
+  "scanSource": null,
+  "dataDate": "20260827",
+  "temperature": {
+    "overall": "watch",
+    "label": "观望",
+    "detail": [
+      {
+        "name": "上证指数",
+        "close": 3956.571,
+        "aboveMa20": true,
+        "mom5": 1.35,
+        "regime": "attack"
+      },
+      {
+        "name": "创业板指",
+        "close": 3473.3547,
+        "aboveMa20": false,
+        "mom5": -0.55,
+        "regime": "defend"
+      }
+    ]
+  },
+  "benchmarks": {
+    "cum20": 7.4
+  },
+  "stocks": [
+    {
+      "code": "600519",
+      "name": "贵州茅台",
+      "industry": "食品饮料",
+      "board": "西部大开发",
+      "score": {
+        "composite": 27,
+        "grade": "弱（放弃）"
+      },
+      "position": {
+        "tag": "破位下行",
+        "percentile": 24,
+        "ma": {
+          "m5": 1295.3179999999998,
+          "m10": 1300.9040000000005,
+          "m20": 1318.2425,
+          "m60": 1272.7136666666668
+        },
+        "macdCross": "dead",
+        "kdj": {
+          "k": 37.390460729503616,
+          "d": 34.046961264156096,
+          "j": 44.077459660198656
+        },
+        "rsi14": 47.21827833669002,
+        "volumeHealth": {
+          "upDownRatio": 1.143274681500098,
+          "accel": 0.7616867315704257
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 1293.5175453932113,
+        "giveupRatio": 577.4230187468258,
+        "earlyVolShare": 53.953916165034215,
+        "high": 1305,
+        "highTime": "09:33",
+        "low": 1288,
+        "lowTime": "13:02",
+        "bestRuns": [
+          {
+            "till": "09:36",
+            "gain": 0.34953703703703987
+          },
+          {
+            "till": "10:08",
+            "gain": 0.20368641550485567
+          },
+          {
+            "till": "13:14",
+            "gain": 0.18992100836427994
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "禁用",
+          "trigger": 1367.44,
+          "zone": [
+            1367.44,
+            1390.62
+          ],
+          "stop": 1299.07,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "禁用",
+          "keyLevel": 1300.9,
+          "zone": [
+            1287.89,
+            1313.91
+          ],
+          "stop": 1261.87
+        }
+      },
+      "notes": [
+        "个股破位：仅观望",
+        "综合评分27(弱): 不建议参与"
+      ]
+    }
+  ],
+  "guards": [
+    "观望档: 轻仓试错"
+  ],
+  "risks": [
+    "价量推断非资金实测",
+    "趋势最强不等于连板预期",
+    "仅供研究参考不构成投资建议"
+  ],
+  "timing": {
+    "totalMs": 21845,
+    "calls": [
+      {
+        "name": "index.index_data",
+        "ok": true,
+        "ms": 3799
+      },
+      {
+        "name": "index.index_data",
+        "ok": true,
+        "ms": 2822
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1968
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2133
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 4933
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2539
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 3536
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 115
+      }
+    ]
+  }
+}

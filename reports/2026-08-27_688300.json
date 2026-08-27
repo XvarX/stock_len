@@ -1,0 +1,121 @@
+{
+  "version": "stock-lens-report/1",
+  "generatedAt": "2026-08-27T14:15:04.146Z",
+  "mode": "night",
+  "scanSource": null,
+  "dataDate": "20260827",
+  "temperature": {
+    "overall": "watch",
+    "label": "观望",
+    "detail": [
+      {
+        "name": "上证指数",
+        "close": 3956.571,
+        "aboveMa20": true,
+        "mom5": 1.35,
+        "regime": "attack"
+      },
+      {
+        "name": "创业板指",
+        "close": 3473.3547,
+        "aboveMa20": false,
+        "mom5": -0.55,
+        "regime": "defend"
+      }
+    ]
+  },
+  "benchmarks": {
+    "cum20": 7.4
+  },
+  "stocks": [
+    {
+      "code": "688300",
+      "name": "联瑞新材",
+      "industry": "基础化工",
+      "board": "新能源汽车",
+      "score": {
+        "composite": 93,
+        "grade": "强（可操作）"
+      },
+      "position": {
+        "tag": "创阶段新高",
+        "percentile": 100,
+        "ma": {
+          "m5": 154.32800000000003,
+          "m10": 154.55800000000005,
+          "m20": 144.80449999999988,
+          "m60": 171.74049999999994
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 60.63567187589454,
+          "d": 46.65473572231031,
+          "j": 88.597544183063
+        },
+        "rsi14": 63.400283112249745,
+        "volumeHealth": {
+          "upDownRatio": 1.1190897118393062,
+          "accel": 1.136942123030529
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 172.60752465883397,
+        "giveupRatio": 0,
+        "earlyVolShare": 96.48139494399467,
+        "high": 186.24,
+        "highTime": "10:50",
+        "low": 158,
+        "lowTime": "09:44",
+        "bestRuns": [
+          {
+            "till": "10:35",
+            "gain": 3.8930283601917637
+          },
+          {
+            "till": "10:20",
+            "gain": 3.7140980474114738
+          },
+          {
+            "till": "10:21",
+            "gain": 3.3475277974923
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 186.8,
+          "zone": [
+            186.8,
+            189.96
+          ],
+          "stop": 177.46,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 154.56,
+          "zone": [
+            153.01,
+            156.11
+          ],
+          "stop": 149.92
+        }
+      },
+      "notes": []
+    }
+  ],
+  "guards": [
+    "观望档: 轻仓试错"
+  ],
+  "risks": [
+    "价量推断非资金实测",
+    "趋势最强不等于连板预期",
+    "仅供研究参考不构成投资建议"
+  ],
+  "timing": {
+    "totalMs": 0,
+    "calls": []
+  }
+}
