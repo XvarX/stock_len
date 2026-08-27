@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-27T15:27:43.268Z",
-  "sourceMode": "scan",
-  "scanSource": "芯片概念(大涨集群25只), 专精特新(大涨集群20只)",
+  "generatedAt": "2026-08-27T15:42:52.307Z",
+  "sourceMode": "night",
+  "scanSource": null,
   "temperature": {
     "overall": "watch",
     "label": "观望"
@@ -696,7 +696,7 @@
       "name": "云南锗业",
       "board": "西部大开发",
       "prevClose": 101.36,
-      "score": 78,
+      "score": 70,
       "A": {
         "status": "待触发",
         "forbidReasons": [],
@@ -728,7 +728,7 @@
         "desc": "回踩关键位低吸"
       },
       "notes": [
-        "强（可操作）",
+        "中（观察）",
         "高位整理"
       ]
     }
