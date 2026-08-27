@@ -29,7 +29,7 @@
     "bigGainPct": 7,
     "boardTopN": 2,
     "probeN": 40,
-    "candidateN": 12,
+    "candidateN": 5,
     "minTurnoverRate": 3,
     "minMarketCapYi": 30
   }
