@@ -117,6 +117,13 @@ async function main() {
       notes: [`${st.score.grade}`, st.ds.posTag, ...(st.cards.guardNotes || [])],
     })),
   };
+  // 合并同日已有计划: 新运行的票以最新状态为准, 未涉及的旧票原样保留(避免多轮分析互相覆盖)
+  const existing = J.loadPlan(payload.targetDate);
+  if (existing && Array.isArray(existing.items)) {
+    const byCode = new Map(existing.items.map((i) => [i.code, i]));
+    for (const it of payload.items) byCode.set(it.code, { ...byCode.get(it.code), ...it });
+    payload.items = [...byCode.values()];
+  }
   const planPath = J.savePlan(payload.targetDate, payload);
   fs.writeFileSync(path.join(__dirname, 'journal', 'plans', payload.targetDate + '.json'), JSON.stringify(payload, null, 2), 'utf-8');
 

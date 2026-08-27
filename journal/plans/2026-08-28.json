@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-27T12:24:21.767Z",
+  "generatedAt": "2026-08-27T12:44:15.044Z",
   "sourceMode": "scan",
   "scanSource": "专精特新(大涨集群4只), 芯片概念(大涨集群3只)",
   "temperature": {
@@ -14,6 +14,48 @@
   "targetNote": "以下价位由数据日收盘推导, 节假日顺延仅按周末处理",
   "targetDate": "2026-08-28",
   "items": [
+    {
+      "code": "001309",
+      "name": "德明利",
+      "board": "中证500成份股",
+      "prevClose": 429.76,
+      "score": 31,
+      "A": {
+        "status": "禁用",
+        "forbidReasons": [],
+        "trigger": 452,
+        "zone": [
+          452,
+          459.66
+        ],
+        "stop": 429.4,
+        "holdDays": "1-5",
+        "confirm": "盘中价≥触发价 且 分时站上VWAP 且 板块同向上涨",
+        "desc": "突破20日高点450.65"
+      },
+      "B": {
+        "status": "禁用",
+        "forbidReasons": [],
+        "keyLevels": {
+          "MA10": 410.38,
+          "platformLow": 347
+        },
+        "key": "MA10为主",
+        "zone": [
+          406.28,
+          414.48
+        ],
+        "stop": 398.07,
+        "holdDays": "1-5",
+        "confirm": "缩量回踩带内后收出企稳阳线(回调段量<近5日均量×0.8)",
+        "desc": "回踩关键位低吸"
+      },
+      "notes": [
+        "弱（放弃）",
+        "高位整理",
+        "综合评分31(弱): 不建议参与"
+      ]
+    },
     {
       "code": "688790",
       "name": "昂瑞微",

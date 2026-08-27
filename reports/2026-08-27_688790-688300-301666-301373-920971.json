@@ -1,6 +1,6 @@
 {
   "version": "stock-lens-report/1",
-  "generatedAt": "2026-08-27T12:24:21.766Z",
+  "generatedAt": "2026-08-27T12:44:15.043Z",
   "mode": "scan",
   "scanSource": "专精特新(大涨集群4只), 芯片概念(大涨集群3只)",
   "dataDate": "20260827",
@@ -425,12 +425,12 @@
     "仅供研究参考不构成投资建议"
   ],
   "timing": {
-    "totalMs": 335,
+    "totalMs": 573,
     "calls": [
       {
         "name": "stock.search_stocks",
         "ok": true,
-        "ms": 335
+        "ms": 573
       }
     ]
   }

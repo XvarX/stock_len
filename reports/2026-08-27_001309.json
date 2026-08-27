@@ -1,0 +1,154 @@
+{
+  "version": "stock-lens-report/1",
+  "generatedAt": "2026-08-27T12:43:01.788Z",
+  "mode": "night",
+  "scanSource": null,
+  "dataDate": "20260827",
+  "temperature": {
+    "overall": "watch",
+    "label": "观望",
+    "detail": [
+      {
+        "name": "上证指数",
+        "close": 3956.571,
+        "aboveMa20": true,
+        "mom5": 1.35,
+        "regime": "attack"
+      },
+      {
+        "name": "创业板指",
+        "close": 3473.3547,
+        "aboveMa20": false,
+        "mom5": -0.55,
+        "regime": "defend"
+      }
+    ]
+  },
+  "benchmarks": {
+    "cum20": 7.4
+  },
+  "stocks": [
+    {
+      "code": "001309",
+      "name": "德明利",
+      "industry": "电子",
+      "board": "中证500成份股",
+      "score": {
+        "composite": 31,
+        "grade": "弱（放弃）"
+      },
+      "position": {
+        "tag": "高位整理",
+        "percentile": 80,
+        "ma": {
+          "m5": 406.592,
+          "m10": 410.3779999999996,
+          "m20": 399.3705000000005,
+          "m60": 580.5618333333337
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 36.9484216702699,
+          "d": 35.10492601973825,
+          "j": 40.635412971333196
+        },
+        "rsi14": 47.168286655805055,
+        "volumeHealth": {
+          "upDownRatio": 0.05511659060151789,
+          "accel": 0.6326257158887322
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 417.53026683996154,
+        "giveupRatio": 0,
+        "earlyVolShare": 67.19999237566073,
+        "high": 429.76,
+        "highTime": "14:31",
+        "low": 392.33,
+        "lowTime": "09:44",
+        "bestRuns": [
+          {
+            "till": "10:40",
+            "gain": 2.6132487870490495
+          },
+          {
+            "till": "10:39",
+            "gain": 2.431325301204823
+          },
+          {
+            "till": "10:41",
+            "gain": 1.9138755980861344
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "禁用",
+          "trigger": 452,
+          "zone": [
+            452,
+            459.66
+          ],
+          "stop": 429.4,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "禁用",
+          "keyLevel": 410.38,
+          "zone": [
+            406.28,
+            414.48
+          ],
+          "stop": 398.07
+        }
+      },
+      "notes": [
+        "综合评分31(弱): 不建议参与"
+      ]
+    }
+  ],
+  "guards": [
+    "观望档: 轻仓试错"
+  ],
+  "risks": [
+    "价量推断非资金实测",
+    "趋势最强不等于连板预期",
+    "仅供研究参考不构成投资建议"
+  ],
+  "timing": {
+    "totalMs": 14083,
+    "calls": [
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2387
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2714
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 3743
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2318
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2770
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 151
+      }
+    ]
+  }
+}
