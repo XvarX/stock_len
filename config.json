@@ -28,7 +28,8 @@
   "scan": {
     "bigGainPct": 7,
     "boardTopN": 2,
-    "candidateN": 8,
+    "probeN": 40,
+    "candidateN": 12,
     "minTurnoverRate": 3,
     "minMarketCapYi": 30
   }

@@ -78,6 +78,8 @@ async function doContext(dateStr) {
   for (let i = 0; i < codes.length; i += 10) {
     try { Object.assign(intra, await f.intraday(codes.slice(i, i + 10), { fresh: true })); } catch {}
   }
+  let flows = {};
+  try { flows = await f.flowSeries(plan.items.map((x) => ({ code: x.code, name: x.name }))); } catch {}
   for (const it of plan.items) {
     const s = snap[it.code] || {};
     const bars = intra[it.code];
@@ -92,6 +94,9 @@ async function doContext(dateStr) {
       retractVolRatio: isFinite(cf.retractVolRatio) ? r2(cf.retractVolRatio) : null,
       A: { status: it.A.status, trigger: it.A.trigger, zone: it.A.zone, stop: it.A.stop },
       B: { status: it.B.status, zone: it.B.zone, stop: it.B.stop },
+      flowToday: isFinite(flows[it.code]?.today) ? r2(flows[it.code].today / 1e8) : null, // 亿
+      flow5d: isFinite(flows[it.code]?.cum5) ? r2(flows[it.code].cum5 / 1e8) : null, // 亿
+      flowStale: flows[it.code] ? String(flows[it.code].lastDate || '').replace(/-/g, '') !== dateStr.replace(/-/g, '') : null, // true=疑似非当日值,判断时降权
       sectorPct: it.board ? (isFinite(f._sec?.[it.board]?.pct) ? f._sec[it.board].pct : null) : null,
     });
   }

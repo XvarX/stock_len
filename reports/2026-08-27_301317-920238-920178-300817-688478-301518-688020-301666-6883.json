@@ -1,0 +1,1638 @@
+{
+  "version": "stock-lens-report/1",
+  "generatedAt": "2026-08-27T15:27:43.267Z",
+  "mode": "scan",
+  "scanSource": "芯片概念(大涨集群25只), 专精特新(大涨集群20只)",
+  "dataDate": "20260827",
+  "temperature": {
+    "overall": "watch",
+    "label": "观望",
+    "detail": [
+      {
+        "name": "上证指数",
+        "close": 3956.571,
+        "aboveMa20": true,
+        "mom5": 1.35,
+        "regime": "attack"
+      },
+      {
+        "name": "创业板指",
+        "close": 3473.3547,
+        "aboveMa20": false,
+        "mom5": -0.55,
+        "regime": "defend"
+      }
+    ]
+  },
+  "benchmarks": {
+    "cum20": 7.4
+  },
+  "stocks": [
+    {
+      "code": "301317",
+      "name": "鑫磊股份",
+      "industry": "机械设备",
+      "board": "污水处理",
+      "score": {
+        "composite": 49,
+        "grade": "弱（放弃）"
+      },
+      "position": {
+        "tag": "高位整理",
+        "percentile": 83,
+        "ma": {
+          "m5": 43.574,
+          "m10": 44.066999999999986,
+          "m20": 43.77249999999997,
+          "m60": 52.02766666666667
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 47.19823726480687,
+          "d": 40.223328880460855,
+          "j": 61.14805403349891
+        },
+        "rsi14": 51.08778843385875,
+        "volumeHealth": {
+          "upDownRatio": 1.1690815363743332,
+          "accel": 1.4891951991470274
+        },
+        "blowoff": {
+          "date": "20260826",
+          "daysAgo": 1,
+          "pct": -9.5768
+        }
+      },
+      "intraday": {
+        "vwap": 43.87380439208108,
+        "giveupRatio": 2.3688695569782,
+        "earlyVolShare": 43.8604539846832,
+        "high": 46.51,
+        "highTime": "14:04",
+        "low": 40.2,
+        "lowTime": "09:31",
+        "bestRuns": [
+          {
+            "till": "13:10",
+            "gain": 3.446680545917191
+          },
+          {
+            "till": "13:14",
+            "gain": 2.9054054054054035
+          },
+          {
+            "till": "13:09",
+            "gain": 2.445777572681118
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "禁用",
+          "trigger": 48.16,
+          "zone": [
+            48.16,
+            48.98
+          ],
+          "stop": 45.75,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "禁用",
+          "keyLevel": 44.07,
+          "zone": [
+            43.63,
+            44.51
+          ],
+          "stop": 42.75
+        }
+      },
+      "notes": [
+        "综合评分49(弱): 不建议参与"
+      ]
+    },
+    {
+      "code": "920238",
+      "name": "长鹰硬科",
+      "industry": "机械设备",
+      "board": "2026中报预增",
+      "score": {
+        "composite": 52,
+        "grade": "弱（放弃）"
+      },
+      "position": {
+        "tag": "中继修复",
+        "percentile": 66,
+        "ma": {
+          "m5": 70.234,
+          "m10": 67.27599999999998,
+          "m20": 70.7745,
+          "m60": null
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 69.53666024301332,
+          "d": 53.01982358132736,
+          "j": 102.57033356638522
+        },
+        "rsi14": 64.89697096212674,
+        "volumeHealth": {
+          "upDownRatio": 1.3120206887145758,
+          "accel": 0.775105909649936
+        },
+        "blowoff": {
+          "date": "20260813",
+          "daysAgo": 10,
+          "pct": -7.4279
+        }
+      },
+      "intraday": {
+        "vwap": 74.21088251102164,
+        "giveupRatio": 35.596482873082145,
+        "earlyVolShare": 80.85441152645065,
+        "high": 79.86,
+        "highTime": "10:38",
+        "low": 68.02,
+        "lowTime": "09:41",
+        "bestRuns": [
+          {
+            "till": "10:16",
+            "gain": 4.708232272792112
+          },
+          {
+            "till": "10:20",
+            "gain": 4.429940286071377
+          },
+          {
+            "till": "10:14",
+            "gain": 4.17867435158501
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "禁用",
+          "trigger": 84.08,
+          "zone": [
+            84.08,
+            85.51
+          ],
+          "stop": 79.88,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "禁用",
+          "keyLevel": 67.28,
+          "zone": [
+            66.61,
+            67.95
+          ],
+          "stop": 65.26
+        }
+      },
+      "notes": [
+        "综合评分52(弱): 不建议参与"
+      ]
+    },
+    {
+      "code": "920178",
+      "name": "锐翔智能",
+      "industry": "机械设备",
+      "board": "PCB概念",
+      "score": {
+        "composite": 29,
+        "grade": "弱（放弃）"
+      },
+      "position": {
+        "tag": "破位下行",
+        "percentile": 38,
+        "ma": {
+          "m5": 91.196,
+          "m10": 94.96699999999996,
+          "m20": 95.87450000000004,
+          "m60": 113.55183333333336
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 23.462416038619438,
+          "d": 23.97398631082326,
+          "j": 22.439275494211792
+        },
+        "rsi14": 45.339367934883605,
+        "volumeHealth": {
+          "upDownRatio": 0.4797200038224233,
+          "accel": 5.424346828911836
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 92.12651124798896,
+        "giveupRatio": 8.21326065588404,
+        "earlyVolShare": 60.2717357007986,
+        "high": 95,
+        "highTime": "14:16",
+        "low": 87.61,
+        "lowTime": "09:31",
+        "bestRuns": [
+          {
+            "till": "10:37",
+            "gain": 2.1753533568904526
+          },
+          {
+            "till": "10:46",
+            "gain": 2.0075963103635353
+          },
+          {
+            "till": "10:39",
+            "gain": 1.9296504576028273
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "禁用",
+          "trigger": 115.2,
+          "zone": [
+            115.2,
+            117.16
+          ],
+          "stop": 109.44,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "禁用",
+          "keyLevel": 94.97,
+          "zone": [
+            94.02,
+            95.92
+          ],
+          "stop": 92.12
+        }
+      },
+      "notes": [
+        "个股破位：仅观望",
+        "综合评分29(弱): 不建议参与"
+      ]
+    },
+    {
+      "code": "300817",
+      "name": "双飞集团",
+      "industry": "机械设备",
+      "board": "风电",
+      "score": {
+        "composite": 80,
+        "grade": "强（可操作）"
+      },
+      "position": {
+        "tag": "创阶段新高",
+        "percentile": 57,
+        "ma": {
+          "m5": 15.43599999999999,
+          "m10": 15.511000000000006,
+          "m20": 15.532999999999992,
+          "m60": 16.03833333333333
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 38.1722017304673,
+          "d": 37.5121087663294,
+          "j": 39.49238765874311
+        },
+        "rsi14": 58.49591498199713,
+        "volumeHealth": {
+          "upDownRatio": 1.070822819579316,
+          "accel": 1.5330073393483625
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 16.70955649373499,
+        "giveupRatio": 56.2249990635606,
+        "earlyVolShare": 74.9425139867544,
+        "high": 17.73,
+        "highTime": "09:32",
+        "low": 16.14,
+        "lowTime": "09:30",
+        "bestRuns": [
+          {
+            "till": "09:35",
+            "gain": 4.213135068153662
+          },
+          {
+            "till": "09:52",
+            "gain": 0.9096422073984423
+          },
+          {
+            "till": "13:43",
+            "gain": 0.7970570202330052
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 17.78,
+          "zone": [
+            17.78,
+            18.08
+          ],
+          "stop": 16.89,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 15.51,
+          "zone": [
+            15.35,
+            15.67
+          ],
+          "stop": 15.04
+        }
+      },
+      "notes": []
+    },
+    {
+      "code": "688478",
+      "name": "晶升股份",
+      "industry": "电子",
+      "board": "光伏概念",
+      "score": {
+        "composite": 63,
+        "grade": "中（观察）"
+      },
+      "position": {
+        "tag": "中继修复",
+        "percentile": 65,
+        "ma": {
+          "m5": 48.627999999999965,
+          "m10": 50.19699999999999,
+          "m20": 47.97199999999997,
+          "m60": 58.40116666666667
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 31.868512549544135,
+          "d": 35.90075046697544,
+          "j": 23.80403671468153
+        },
+        "rsi14": 49.84143405082338,
+        "volumeHealth": {
+          "upDownRatio": 1.193035763376697,
+          "accel": 0.7500569932592177
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 49.25206497529268,
+        "giveupRatio": 5.163038986079453,
+        "earlyVolShare": 61.47293407559862,
+        "high": 50.6,
+        "highTime": "14:43",
+        "low": 46.89,
+        "lowTime": "09:44",
+        "bestRuns": [
+          {
+            "till": "10:36",
+            "gain": 2.038714991762758
+          },
+          {
+            "till": "10:35",
+            "gain": 2.016875900391013
+          },
+          {
+            "till": "10:38",
+            "gain": 1.8010642652476427
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 57.37,
+          "zone": [
+            57.37,
+            58.34
+          ],
+          "stop": 54.5,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 50.2,
+          "zone": [
+            49.7,
+            50.7
+          ],
+          "stop": 48.69
+        }
+      },
+      "notes": []
+    },
+    {
+      "code": "301518",
+      "name": "长华化学",
+      "industry": "基础化工",
+      "board": "新能源汽车",
+      "score": {
+        "composite": 13,
+        "grade": "弱（放弃）"
+      },
+      "position": {
+        "tag": "破位下行",
+        "percentile": 36,
+        "ma": {
+          "m5": 24.638000000000023,
+          "m10": 25.314000000000004,
+          "m20": 25.222500000000007,
+          "m60": 25.991333333333337
+        },
+        "macdCross": "dead",
+        "kdj": {
+          "k": 27.433776968037506,
+          "d": 27.01995548122025,
+          "j": 28.261419941672017
+        },
+        "rsi14": 48.30624867360715,
+        "volumeHealth": {
+          "upDownRatio": 1.2776947005031163,
+          "accel": 1.156422033297436
+        },
+        "blowoff": {
+          "date": "20260826",
+          "daysAgo": 1,
+          "pct": -10.0158
+        }
+      },
+      "intraday": {
+        "vwap": 24.236339657011122,
+        "giveupRatio": 23.92159750507934,
+        "earlyVolShare": 77.6277408855673,
+        "high": 25.37,
+        "highTime": "10:25",
+        "low": 22.55,
+        "lowTime": "09:31",
+        "bestRuns": [
+          {
+            "till": "09:52",
+            "gain": 3.3898305084745672
+          },
+          {
+            "till": "09:54",
+            "gain": 3.239556692242096
+          },
+          {
+            "till": "09:51",
+            "gain": 3.018542475204833
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "禁用",
+          "trigger": 28.77,
+          "zone": [
+            28.77,
+            29.25
+          ],
+          "stop": 27.33,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "禁用",
+          "keyLevel": 25.31,
+          "zone": [
+            25.06,
+            25.56
+          ],
+          "stop": 24.55
+        }
+      },
+      "notes": [
+        "个股破位：仅观望",
+        "综合评分13(弱): 不建议参与"
+      ]
+    },
+    {
+      "code": "688020",
+      "name": "方邦股份",
+      "industry": "电子",
+      "board": "华为概念",
+      "score": {
+        "composite": 74,
+        "grade": "中（观察）"
+      },
+      "position": {
+        "tag": "中继修复",
+        "percentile": 55,
+        "ma": {
+          "m5": 124.346,
+          "m10": 132.546,
+          "m20": 129.22250000000003,
+          "m60": 162.94216666666657
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 28.771813399241022,
+          "d": 31.364794882373733,
+          "j": 23.585850432975597
+        },
+        "rsi14": 47.524948402835605,
+        "volumeHealth": {
+          "upDownRatio": 1.1921386177786002,
+          "accel": 0.7306526689897156
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 126.59429540199301,
+        "giveupRatio": 17.467666177069635,
+        "earlyVolShare": 67.2129431142325,
+        "high": 131.88,
+        "highTime": "13:08",
+        "low": 118.33,
+        "lowTime": "09:43",
+        "bestRuns": [
+          {
+            "till": "13:08",
+            "gain": 2.376329890502449
+          },
+          {
+            "till": "10:52",
+            "gain": 2.3565573770491843
+          },
+          {
+            "till": "10:56",
+            "gain": 2.320312499999999
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 158.47,
+          "zone": [
+            158.47,
+            161.16
+          ],
+          "stop": 150.55,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 132.55,
+          "zone": [
+            131.22,
+            133.88
+          ],
+          "stop": 128.57
+        }
+      },
+      "notes": []
+    },
+    {
+      "code": "301666",
+      "name": "大普微",
+      "industry": "电子",
+      "board": "新股与次新股",
+      "score": {
+        "composite": 56,
+        "grade": "中（观察）"
+      },
+      "position": {
+        "tag": "高位整理",
+        "percentile": 89,
+        "ma": {
+          "m5": 417.5039999999998,
+          "m10": 428.40299999999996,
+          "m20": 426.6594999999999,
+          "m60": 548.8685000000002
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 40.420469261041006,
+          "d": 31.633711911241903,
+          "j": 57.99398396063921
+        },
+        "rsi14": 52.46704832445842,
+        "volumeHealth": {
+          "upDownRatio": 1.0699823942598978,
+          "accel": 0.5955564447594899
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 464.23999316638265,
+        "giveupRatio": 0,
+        "earlyVolShare": 96.67488534628247,
+        "high": 469.2,
+        "highTime": "09:31",
+        "low": 455.73,
+        "lowTime": "09:31",
+        "bestRuns": [
+          {
+            "till": "09:35",
+            "gain": 2.2311312532682592
+          },
+          {
+            "till": "09:36",
+            "gain": 0
+          },
+          {
+            "till": "09:37",
+            "gain": 0
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 482.32,
+          "zone": [
+            482.32,
+            490.5
+          ],
+          "stop": 458.2,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 428.4,
+          "zone": [
+            424.12,
+            432.68
+          ],
+          "stop": 415.55
+        }
+      },
+      "notes": []
+    },
+    {
+      "code": "688327",
+      "name": "云从科技",
+      "industry": "计算机",
+      "board": "智能电网",
+      "score": {
+        "composite": 52,
+        "grade": "弱（放弃）"
+      },
+      "position": {
+        "tag": "中继修复",
+        "percentile": 53,
+        "ma": {
+          "m5": 10.014000000000015,
+          "m10": 10.279000000000005,
+          "m20": 10.679999999999996,
+          "m60": 11.684666666666656
+        },
+        "macdCross": "dead",
+        "kdj": {
+          "k": 32.91014490374227,
+          "d": 22.056576323040915,
+          "j": 54.61728206514499
+        },
+        "rsi14": 49.207618777086765,
+        "volumeHealth": {
+          "upDownRatio": 1.2624145344532225,
+          "accel": 1.0801092112237685
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 10.548040451880402,
+        "giveupRatio": 39.04098218375684,
+        "earlyVolShare": 17.934645702196757,
+        "high": 11.22,
+        "highTime": "13:36",
+        "low": 9.76,
+        "lowTime": "09:30",
+        "bestRuns": [
+          {
+            "till": "13:22",
+            "gain": 3.320683111954481
+          },
+          {
+            "till": "13:01",
+            "gain": 3.103103103103111
+          },
+          {
+            "till": "13:18",
+            "gain": 2.7131782945736482
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "禁用",
+          "trigger": 11.75,
+          "zone": [
+            11.75,
+            11.94
+          ],
+          "stop": 11.16,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "禁用",
+          "keyLevel": 10.28,
+          "zone": [
+            10.18,
+            10.38
+          ],
+          "stop": 9.97
+        }
+      },
+      "notes": [
+        "综合评分52(弱): 不建议参与"
+      ]
+    },
+    {
+      "code": "600641",
+      "name": "先导基电",
+      "industry": "电子",
+      "board": "创投",
+      "score": {
+        "composite": 87,
+        "grade": "强（可操作）"
+      },
+      "position": {
+        "tag": "高位整理",
+        "percentile": 74,
+        "ma": {
+          "m5": 32.218000000000025,
+          "m10": 33.314,
+          "m20": 31.494499999999995,
+          "m60": 33.32533333333334
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 34.99357859992071,
+          "d": 35.48727502644855,
+          "j": 34.00618574686503
+        },
+        "rsi14": 53.80411107710173,
+        "volumeHealth": {
+          "upDownRatio": 1.2198238868612643,
+          "accel": 0.8158679793583472
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 32.60037061190202,
+        "giveupRatio": 0,
+        "earlyVolShare": 90.65086146206127,
+        "high": 34,
+        "highTime": "11:08",
+        "low": 30.92,
+        "lowTime": "09:43",
+        "bestRuns": [
+          {
+            "till": "11:03",
+            "gain": 2.477821963903337
+          },
+          {
+            "till": "11:07",
+            "gain": 1.8964479229379938
+          },
+          {
+            "till": "11:10",
+            "gain": 1.674641148325362
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 38.11,
+          "zone": [
+            38.11,
+            38.76
+          ],
+          "stop": 36.2,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 33.31,
+          "zone": [
+            32.98,
+            33.64
+          ],
+          "stop": 32.31
+        }
+      },
+      "notes": []
+    },
+    {
+      "code": "301021",
+      "name": "英诺激光",
+      "industry": "机械设备",
+      "board": "高端装备",
+      "score": {
+        "composite": 87,
+        "grade": "强（可操作）"
+      },
+      "position": {
+        "tag": "高位整理",
+        "percentile": 94,
+        "ma": {
+          "m5": 76.50399999999988,
+          "m10": 76.15700000000008,
+          "m20": 69.55149999999995,
+          "m60": 85.52483333333335
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 59.06450826754889,
+          "d": 58.07106512657591,
+          "j": 61.051394549494844
+        },
+        "rsi14": 58.3129371769875,
+        "volumeHealth": {
+          "upDownRatio": 1.1619652264724332,
+          "accel": 0.9151228515853812
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 79.21902711559518,
+        "giveupRatio": 8.196691978345209,
+        "earlyVolShare": 66.82849433541375,
+        "high": 82.48,
+        "highTime": "13:09",
+        "low": 74.69,
+        "lowTime": "09:44",
+        "bestRuns": [
+          {
+            "till": "10:13",
+            "gain": 2.8055591635277377
+          },
+          {
+            "till": "10:11",
+            "gain": 2.167462262933806
+          },
+          {
+            "till": "10:12",
+            "gain": 2.0276378664600303
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 84.22,
+          "zone": [
+            84.22,
+            85.65
+          ],
+          "stop": 80.01,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 76.16,
+          "zone": [
+            75.4,
+            76.92
+          ],
+          "stop": 73.88
+        }
+      },
+      "notes": []
+    },
+    {
+      "code": "002428",
+      "name": "云南锗业",
+      "industry": "有色金属",
+      "board": "西部大开发",
+      "score": {
+        "composite": 78,
+        "grade": "强（可操作）"
+      },
+      "position": {
+        "tag": "高位整理",
+        "percentile": 75,
+        "ma": {
+          "m5": 97.06199999999993,
+          "m10": 101.31100000000004,
+          "m20": 95.32100000000005,
+          "m60": 94.2026666666666
+        },
+        "macdCross": "dead",
+        "kdj": {
+          "k": 32.875504477487226,
+          "d": 38.58490327699857,
+          "j": 21.456706878464544
+        },
+        "rsi14": 55.85726890630404,
+        "volumeHealth": {
+          "upDownRatio": 0.8610529215462944,
+          "accel": 1.5844443502316774
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 98.75534459562479,
+        "giveupRatio": 15.614989216984624,
+        "earlyVolShare": 73.48701514265365,
+        "high": 102.82,
+        "highTime": "10:51",
+        "low": 93.6,
+        "lowTime": "09:44",
+        "bestRuns": [
+          {
+            "till": "10:47",
+            "gain": 2.9146847485072236
+          },
+          {
+            "till": "10:45",
+            "gain": 2.60490573687413
+          },
+          {
+            "till": "10:46",
+            "gain": 2.319927059061899
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 113.34,
+          "zone": [
+            113.34,
+            115.26
+          ],
+          "stop": 107.67,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 101.31,
+          "zone": [
+            100.3,
+            102.32
+          ],
+          "stop": 98.27
+        }
+      },
+      "notes": []
+    }
+  ],
+  "guards": [
+    "观望档: 轻仓试错"
+  ],
+  "risks": [
+    "价量推断非资金实测",
+    "趋势最强不等于连板预期",
+    "仅供研究参考不构成投资建议"
+  ],
+  "timing": {
+    "totalMs": 291856,
+    "calls": [
+      {
+        "name": "stock.search_stocks",
+        "ok": true,
+        "ms": 245
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1892
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 3306
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2064
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2299
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2189
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2434
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2607
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 4950
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1989
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 3243
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2261
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2918
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1990
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2508
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2014
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2815
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2285
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2342
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2198
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2210
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1837
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2293
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1954
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2291
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2257
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2291
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1780
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2671
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2060
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2703
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2307
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2327
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2021
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2515
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1933
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2378
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1700
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2160
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1606
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1651
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2152
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2815
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1703
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2719
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2009
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2053
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2147
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2510
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1725
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2225
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1863
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2134
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2347
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2370
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2012
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2182
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1765
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1827
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1800
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2290
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1721
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2532
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1817
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2832
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2011
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2104
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1965
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1975
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2096
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2325
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1994
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2216
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1766
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2708
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1771
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2004
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1684
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 10591
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 3271
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 1976
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 1922
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 1992
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 100
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 3998
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 2134
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 1002
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 1018
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 120
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 5350
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 2124
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2106
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2530
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 121
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 3874
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 2377
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 1906
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 1560
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 156
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 4257
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 2285
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 125
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 4165
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 2940
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 145
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 4249
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 2475
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2041
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2961
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 115
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 3220
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 3607
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 2788
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2408
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2489
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 137
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 4675
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 2115
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2127
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2549
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 165
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 3968
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 2540
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2143
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2103
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 90
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 4393
+      },
+      {
+        "name": "stock.get_stock_performance",
+        "ok": true,
+        "ms": 2582
+      },
+      {
+        "name": "stock.stock_highfreq_quotes",
+        "ok": true,
+        "ms": 108
+      }
+    ]
+  }
+}
