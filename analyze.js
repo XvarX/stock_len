@@ -141,7 +141,7 @@ async function main() {
     const topBoard = (sc.boards[0] || {}).name;
     if (topBoard) catalyst = await f.newsCatalyst(topBoard, 3);
     result.scanMeta = {
-      emotion, ladder, leaders, catalyst, catalystBoard: topBoard,
+      emotion, ladder, leaders, catalyst, catalystBoard: topBoard, purity: sc.purity || [],
       limitUpCount: sc.marketLimitUpCount || sc.rawGainCount || finalCodes.length,
       limitUpFiltered: sc.rawGainCount || 0,
       scannedAt: new Date().toISOString(),

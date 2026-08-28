@@ -1,0 +1,595 @@
+{
+  "version": "stock-lens-report/1",
+  "generatedAt": "2026-08-28T04:23:16.669Z",
+  "mode": "scan",
+  "scanSource": "数字经济(大涨集群8只), 人工智能(大涨集群8只)",
+  "dataDate": "20260827",
+  "temperature": {
+    "overall": "watch",
+    "label": "观望",
+    "detail": [
+      {
+        "name": "上证指数",
+        "close": 3956.571,
+        "aboveMa20": true,
+        "mom5": 1.35,
+        "regime": "attack"
+      },
+      {
+        "name": "创业板指",
+        "close": 3473.3547,
+        "aboveMa20": false,
+        "mom5": -0.55,
+        "regime": "defend"
+      }
+    ]
+  },
+  "benchmarks": {
+    "cum20": 7.4
+  },
+  "stocks": [
+    {
+      "code": "002952",
+      "name": "亚世光电",
+      "industry": "电子",
+      "board": "新能源汽车",
+      "score": {
+        "composite": 59,
+        "grade": "中（观察）"
+      },
+      "position": {
+        "tag": "高位整理",
+        "percentile": 73,
+        "ma": {
+          "m5": 19.690000000000015,
+          "m10": 19.852999999999998,
+          "m20": 19.695999999999994,
+          "m60": 20.660333333333327
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 44.20009336711579,
+          "d": 48.21659933903734,
+          "j": 36.167081423272705
+        },
+        "rsi14": 50.13847069355708,
+        "volumeHealth": {
+          "upDownRatio": 0.95890544929508,
+          "accel": 0.9612781765181225
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 21.14417480241748,
+        "giveupRatio": 0,
+        "earlyVolShare": 100,
+        "high": 21.79,
+        "highTime": "09:51",
+        "low": 19.71,
+        "lowTime": "09:31",
+        "bestRuns": [
+          {
+            "till": "09:53",
+            "gain": 8.570004982561041
+          },
+          {
+            "till": "09:54",
+            "gain": 8.192651439920539
+          },
+          {
+            "till": "09:52",
+            "gain": 6.989515726410378
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 20.51,
+          "zone": [
+            20.51,
+            20.86
+          ],
+          "stop": 19.48,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 19.85,
+          "zone": [
+            19.65,
+            20.05
+          ],
+          "stop": 19.25
+        }
+      },
+      "notes": []
+    },
+    {
+      "code": "002212",
+      "name": "天融信",
+      "industry": "计算机",
+      "board": "芯片概念",
+      "score": {
+        "composite": 45,
+        "grade": "弱（放弃）"
+      },
+      "position": {
+        "tag": "破位下行",
+        "percentile": 15,
+        "ma": {
+          "m5": 6.21,
+          "m10": 6.3080000000000025,
+          "m20": 6.5495,
+          "m60": 6.1235000000000035
+        },
+        "macdCross": "dead",
+        "kdj": {
+          "k": 30.48435773700486,
+          "d": 21.24154251458157,
+          "j": 48.96998818185144
+        },
+        "rsi14": 49.47798600376054,
+        "volumeHealth": {
+          "upDownRatio": 1.5541157307436726,
+          "accel": 0.5575541371329549
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 6.8335851594856445,
+        "giveupRatio": 0,
+        "earlyVolShare": 100,
+        "high": 6.93,
+        "highTime": "09:35",
+        "low": 6.58,
+        "lowTime": "09:34",
+        "bestRuns": [
+          {
+            "till": "09:38",
+            "gain": 4.380664652567967
+          },
+          {
+            "till": "09:37",
+            "gain": 3.782148260211793
+          },
+          {
+            "till": "09:35",
+            "gain": 3.003003003003002
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "禁用",
+          "trigger": 8.03,
+          "zone": [
+            8.03,
+            8.17
+          ],
+          "stop": 7.63,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "禁用",
+          "keyLevel": 6.31,
+          "zone": [
+            6.25,
+            6.37
+          ],
+          "stop": 6.12
+        }
+      },
+      "notes": [
+        "个股破位：仅观望",
+        "综合评分45(弱): 不建议参与"
+      ]
+    },
+    {
+      "code": "603171",
+      "name": "税友股份",
+      "industry": "计算机",
+      "board": "中国AI 50",
+      "score": {
+        "composite": 27,
+        "grade": "弱（放弃）"
+      },
+      "position": {
+        "tag": "破位下行",
+        "percentile": 6,
+        "ma": {
+          "m5": 41.16199999999998,
+          "m10": 42.836000000000006,
+          "m20": 45.1875,
+          "m60": 42.42083333333332
+        },
+        "macdCross": "dead",
+        "kdj": {
+          "k": 7.502482835982551,
+          "d": 11.529568301249697,
+          "j": -0.5516880945517393
+        },
+        "rsi14": 37.932854072272654,
+        "volumeHealth": {
+          "upDownRatio": 1.1893001939910148,
+          "accel": 0.41889939658456393
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 43.03101205866484,
+        "giveupRatio": 0,
+        "earlyVolShare": 100,
+        "high": 44.34,
+        "highTime": "10:04",
+        "low": 40.91,
+        "lowTime": "09:33",
+        "bestRuns": [
+          {
+            "till": "09:38",
+            "gain": 3.790087463556868
+          },
+          {
+            "till": "09:39",
+            "gain": 3.571428571428581
+          },
+          {
+            "till": "09:37",
+            "gain": 2.9741589468551988
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "禁用",
+          "trigger": 52.26,
+          "zone": [
+            52.26,
+            53.14
+          ],
+          "stop": 49.65,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "禁用",
+          "keyLevel": 42.84,
+          "zone": [
+            42.41,
+            43.27
+          ],
+          "stop": 41.55
+        }
+      },
+      "notes": [
+        "个股破位：仅观望",
+        "综合评分27(弱): 不建议参与"
+      ]
+    },
+    {
+      "code": "000560",
+      "name": "我爱我家",
+      "industry": "房地产",
+      "board": "京津冀一体化",
+      "score": {
+        "composite": 53,
+        "grade": "弱（放弃）"
+      },
+      "position": {
+        "tag": "高位整理",
+        "percentile": 79,
+        "ma": {
+          "m5": 2.3180000000000005,
+          "m10": 2.2789999999999995,
+          "m20": 2.26,
+          "m60": 2.221333333333333
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 66.79014557418492,
+          "d": 57.321007307301386,
+          "j": 85.72842210795199
+        },
+        "rsi14": 58.56672021497669,
+        "volumeHealth": {
+          "upDownRatio": 0.9129783828916975,
+          "accel": 0.0007867301284757826
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 2.5312120889454013,
+        "giveupRatio": 0,
+        "earlyVolShare": 100,
+        "high": 2.64,
+        "highTime": "09:45",
+        "low": 2.49,
+        "lowTime": "09:30",
+        "bestRuns": [
+          {
+            "till": "09:35",
+            "gain": 2.8112449799196693
+          },
+          {
+            "till": "09:47",
+            "gain": 2.723735408560324
+          },
+          {
+            "till": "09:46",
+            "gain": 2.3255813953488413
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "禁用",
+          "trigger": 2.49,
+          "zone": [
+            2.49,
+            2.53
+          ],
+          "stop": 2.37,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "禁用",
+          "keyLevel": 2.28,
+          "zone": [
+            2.26,
+            2.3
+          ],
+          "stop": 2.21
+        }
+      },
+      "notes": [
+        "综合评分53(弱): 不建议参与"
+      ]
+    },
+    {
+      "code": "002279",
+      "name": "久其软件",
+      "industry": "计算机",
+      "board": "数据中心(AIDC)",
+      "score": {
+        "composite": 24,
+        "grade": "弱（放弃）"
+      },
+      "position": {
+        "tag": "破位下行",
+        "percentile": 17,
+        "ma": {
+          "m5": 6.3180000000000005,
+          "m10": 6.521000000000003,
+          "m20": 6.7540000000000004,
+          "m60": 6.390833333333334
+        },
+        "macdCross": "dead",
+        "kdj": {
+          "k": 17.089262832826464,
+          "d": 17.324802049557622,
+          "j": 16.618184399364146
+        },
+        "rsi14": 46.617452114375574,
+        "volumeHealth": {
+          "upDownRatio": 0.8791631555351287,
+          "accel": 0.3239456633764281
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 6.938684493098368,
+        "giveupRatio": 0,
+        "earlyVolShare": 100,
+        "high": 7.05,
+        "highTime": "09:33",
+        "low": 6.57,
+        "lowTime": "09:32",
+        "bestRuns": [
+          {
+            "till": "09:36",
+            "gain": 7.14285714285714
+          },
+          {
+            "till": "09:35",
+            "gain": 6.818181818181812
+          },
+          {
+            "till": "09:37",
+            "gain": 5.067064083457518
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "禁用",
+          "trigger": 7.73,
+          "zone": [
+            7.73,
+            7.86
+          ],
+          "stop": 7.34,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "禁用",
+          "keyLevel": 6.52,
+          "zone": [
+            6.45,
+            6.59
+          ],
+          "stop": 6.32
+        }
+      },
+      "notes": [
+        "个股破位：仅观望",
+        "综合评分24(弱): 不建议参与"
+      ]
+    }
+  ],
+  "guards": [
+    "观望档: 轻仓试错"
+  ],
+  "risks": [
+    "价量推断非资金实测",
+    "趋势最强不等于连板预期",
+    "仅供研究参考不构成投资建议"
+  ],
+  "scanMeta": {
+    "emotion": {
+      "regime": "normal",
+      "label": "正常(主线龙头可作, 分歧低吸优先)"
+    },
+    "ladder": {
+      "first": 0,
+      "second": 0,
+      "thirdPlus": 0,
+      "max": 0
+    },
+    "leaders": [
+      {
+        "code": "002952",
+        "name": "亚世光电",
+        "boards": 0,
+        "firstDate": null,
+        "oneWordToday": false,
+        "broken": false,
+        "clusterHits": 8,
+        "score": 64,
+        "grade": "梯队成员",
+        "parts": {
+          "height": 40,
+          "time": 50,
+          "drive": 100,
+          "quality": 90,
+          "flow": 60
+        },
+        "rank": 1
+      },
+      {
+        "code": "002212",
+        "name": "天融信",
+        "boards": 0,
+        "firstDate": null,
+        "oneWordToday": false,
+        "broken": false,
+        "clusterHits": 8,
+        "score": 64,
+        "grade": "梯队成员",
+        "parts": {
+          "height": 40,
+          "time": 50,
+          "drive": 100,
+          "quality": 90,
+          "flow": 60
+        },
+        "rank": 2
+      },
+      {
+        "code": "603171",
+        "name": "税友股份",
+        "boards": 0,
+        "firstDate": null,
+        "oneWordToday": false,
+        "broken": false,
+        "clusterHits": 8,
+        "score": 64,
+        "grade": "梯队成员",
+        "parts": {
+          "height": 40,
+          "time": 50,
+          "drive": 100,
+          "quality": 90,
+          "flow": 60
+        },
+        "rank": 3
+      },
+      {
+        "code": "002279",
+        "name": "久其软件",
+        "boards": 0,
+        "firstDate": null,
+        "oneWordToday": false,
+        "broken": false,
+        "clusterHits": 8,
+        "score": 64,
+        "grade": "梯队成员",
+        "parts": {
+          "height": 40,
+          "time": 50,
+          "drive": 100,
+          "quality": 90,
+          "flow": 60
+        },
+        "rank": 4
+      },
+      {
+        "code": "000560",
+        "name": "我爱我家",
+        "boards": 0,
+        "firstDate": null,
+        "oneWordToday": false,
+        "broken": false,
+        "clusterHits": 8,
+        "score": 61,
+        "grade": "梯队成员",
+        "parts": {
+          "height": 40,
+          "time": 50,
+          "drive": 100,
+          "quality": 90,
+          "flow": 30
+        },
+        "rank": 5
+      }
+    ],
+    "catalyst": {
+      "count": 6,
+      "headline": "数字货币概念爆发，新晨科技盘中涨停"
+    },
+    "catalystBoard": "数字经济",
+    "purity": [
+      {
+        "name": "数字经济",
+        "breadth": 512,
+        "tier": "宽/纯度存疑(需人工判定正宗性)"
+      },
+      {
+        "name": "人工智能",
+        "breadth": 1087,
+        "tier": "宽/纯度存疑(需人工判定正宗性)"
+      }
+    ],
+    "limitUpCount": 63,
+    "limitUpFiltered": 25,
+    "scannedAt": "2026-08-28T04:23:16.661Z"
+  },
+  "timing": {
+    "totalMs": 5251,
+    "calls": [
+      {
+        "name": "stock.search_stocks",
+        "ok": true,
+        "ms": 340
+      },
+      {
+        "name": "stock.search_stocks",
+        "ok": true,
+        "ms": 199
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 2399
+      },
+      {
+        "name": "index.sector_data",
+        "ok": true,
+        "ms": 1775
+      },
+      {
+        "name": "news.search_news",
+        "ok": true,
+        "ms": 538
+      }
+    ]
+  }
+}

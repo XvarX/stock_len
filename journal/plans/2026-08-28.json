@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-28T03:00:10.821Z",
+  "generatedAt": "2026-08-28T04:23:16.670Z",
   "sourceMode": "scan",
   "scanSource": "数字经济(大涨集群8只), 人工智能(大涨集群8只)",
   "temperature": {
@@ -435,6 +435,95 @@
       "notes": [
         "强（可操作）",
         "高位整理"
+      ]
+    },
+    {
+      "code": "000560",
+      "name": "我爱我家",
+      "board": "京津冀一体化",
+      "prevClose": 2.4,
+      "score": 53,
+      "A": {
+        "status": "禁用",
+        "forbidReasons": [],
+        "trigger": 2.49,
+        "zone": [
+          2.49,
+          2.53
+        ],
+        "stop": 2.37,
+        "holdDays": "1-5",
+        "confirm": "盘中价≥触发价 且 分时站上VWAP 且 板块同向上涨",
+        "desc": "突破20日高点2.48"
+      },
+      "B": {
+        "status": "禁用",
+        "forbidReasons": [],
+        "keyLevels": {
+          "MA10": 2.28,
+          "platformLow": 2.1
+        },
+        "key": "MA10为主",
+        "zone": [
+          2.26,
+          2.3
+        ],
+        "stop": 2.21,
+        "holdDays": "1-5",
+        "confirm": "缩量回踩带内后收出企稳阳线(回调段量<近5日均量×0.8)",
+        "desc": "回踩关键位低吸"
+      },
+      "notes": [
+        "弱（放弃）",
+        "高位整理",
+        "综合评分53(弱): 不建议参与"
+      ]
+    },
+    {
+      "code": "002279",
+      "name": "久其软件",
+      "board": "数据中心(AIDC)",
+      "prevClose": 6.41,
+      "score": 24,
+      "A": {
+        "status": "禁用",
+        "forbidReasons": [
+          "个股破位：仅观望"
+        ],
+        "trigger": 7.73,
+        "zone": [
+          7.73,
+          7.86
+        ],
+        "stop": 7.34,
+        "holdDays": "1-5",
+        "confirm": "盘中价≥触发价 且 分时站上VWAP 且 板块同向上涨",
+        "desc": "突破20日高点7.71"
+      },
+      "B": {
+        "status": "禁用",
+        "forbidReasons": [
+          "个股破位：仅观望"
+        ],
+        "keyLevels": {
+          "MA10": 6.52,
+          "platformLow": 6.14
+        },
+        "key": "MA10为主",
+        "zone": [
+          6.45,
+          6.59
+        ],
+        "stop": 6.32,
+        "holdDays": "1-5",
+        "confirm": "缩量回踩带内后收出企稳阳线(回调段量<近5日均量×0.8)",
+        "desc": "回踩关键位低吸"
+      },
+      "notes": [
+        "弱（放弃）",
+        "破位下行",
+        "个股破位：仅观望",
+        "综合评分24(弱): 不建议参与"
       ]
     }
   ]
