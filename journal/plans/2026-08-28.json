@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-28T04:23:16.670Z",
-  "sourceMode": "scan",
-  "scanSource": "数字经济(大涨集群8只), 人工智能(大涨集群8只)",
+  "generatedAt": "2026-08-28T04:28:27.219Z",
+  "sourceMode": "night",
+  "scanSource": null,
   "temperature": {
     "overall": "watch",
     "label": "观望"
@@ -524,6 +524,48 @@
         "破位下行",
         "个股破位：仅观望",
         "综合评分24(弱): 不建议参与"
+      ]
+    },
+    {
+      "code": "002396",
+      "name": "星网锐捷",
+      "board": "国企改革",
+      "prevClose": 33.35,
+      "score": 65,
+      "A": {
+        "status": "待触发",
+        "forbidReasons": [],
+        "trigger": 34.8,
+        "zone": [
+          34.8,
+          35.39
+        ],
+        "stop": 33.06,
+        "holdDays": "1-5",
+        "confirm": "盘中价≥触发价 且 分时站上VWAP 且 板块同向上涨",
+        "desc": "突破20日高点34.7"
+      },
+      "B": {
+        "status": "待触发",
+        "forbidReasons": [],
+        "keyLevels": {
+          "MA10": 31.87,
+          "platformLow": 24.56
+        },
+        "key": "MA10为主",
+        "zone": [
+          31.55,
+          32.19
+        ],
+        "stop": 30.91,
+        "holdDays": "1-5",
+        "confirm": "缩量回踩带内后收出企稳阳线(回调段量<近5日均量×0.8)",
+        "desc": "回踩关键位低吸"
+      },
+      "notes": [
+        "中（观察）",
+        "高位整理",
+        "1连板(首板20260827)"
       ]
     }
   ]

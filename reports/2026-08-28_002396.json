@@ -1,0 +1,126 @@
+{
+  "version": "stock-lens-report/1",
+  "generatedAt": "2026-08-28T04:28:27.219Z",
+  "mode": "night",
+  "scanSource": null,
+  "dataDate": "20260827",
+  "temperature": {
+    "overall": "watch",
+    "label": "观望",
+    "detail": [
+      {
+        "name": "上证指数",
+        "close": 3956.571,
+        "aboveMa20": true,
+        "mom5": 1.35,
+        "regime": "attack"
+      },
+      {
+        "name": "创业板指",
+        "close": 3473.3547,
+        "aboveMa20": false,
+        "mom5": -0.55,
+        "regime": "defend"
+      }
+    ]
+  },
+  "benchmarks": {
+    "cum20": 7.4
+  },
+  "stocks": [
+    {
+      "code": "002396",
+      "name": "星网锐捷",
+      "industry": "通信",
+      "board": "国企改革",
+      "score": {
+        "composite": 65,
+        "grade": "中（观察）"
+      },
+      "position": {
+        "tag": "高位整理",
+        "percentile": 87,
+        "ma": {
+          "m5": 31.95199999999998,
+          "m10": 31.873,
+          "m20": 30.247999999999998,
+          "m60": 26.021666666666665
+        },
+        "macdCross": "dead",
+        "kdj": {
+          "k": 51.69564818873715,
+          "d": 49.54038303101854,
+          "j": 56.00617850417437
+        },
+        "rsi14": 58.270943048723346,
+        "volumeHealth": {
+          "upDownRatio": 1.0579821049356264,
+          "accel": 1.2169169598719418
+        },
+        "blowoff": {
+          "date": "20260819",
+          "daysAgo": 6,
+          "pct": -10.0122
+        }
+      },
+      "intraday": {
+        "vwap": 35.796799187149425,
+        "giveupRatio": 0,
+        "earlyVolShare": 100,
+        "high": 36.69,
+        "highTime": "09:37",
+        "low": 33.4,
+        "lowTime": "09:31",
+        "bestRuns": [
+          {
+            "till": "09:36",
+            "gain": 6.424171311234961
+          },
+          {
+            "till": "09:35",
+            "gain": 6.360946745562157
+          },
+          {
+            "till": "09:37",
+            "gain": 4.8285714285714265
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 34.8,
+          "zone": [
+            34.8,
+            35.39
+          ],
+          "stop": 33.06,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 31.87,
+          "zone": [
+            31.55,
+            32.19
+          ],
+          "stop": 30.91
+        }
+      },
+      "notes": []
+    }
+  ],
+  "guards": [
+    "观望档: 轻仓试错"
+  ],
+  "risks": [
+    "价量推断非资金实测",
+    "趋势最强不等于连板预期",
+    "仅供研究参考不构成投资建议"
+  ],
+  "scanMeta": null,
+  "timing": {
+    "totalMs": 0,
+    "calls": []
+  }
+}
