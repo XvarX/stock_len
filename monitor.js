@@ -51,6 +51,12 @@ function nowHm() {
 function inSession(hm) { return CFG.poll.sessions.some(([a, b]) => hm >= a && hm <= b); }
 function isWeekday() { const g = new Date().getDay(); return g >= 1 && g <= 5; }
 
+/* 涨跌停制度: 30/68开头±20%, 其余±10% —— 返回当日跌停价 */
+function limitDownPrice(code, prevClose) {
+  const pct = /^(30|68)/.test(String(code)) ? 0.8 : 0.9;
+  return Math.round(prevClose * pct * 100) / 100;
+}
+
 async function tick(client, firedSet) {
   const today = J.dateKey();
   const hm = nowHm();
@@ -83,11 +89,14 @@ async function tick(client, firedSet) {
     const p = s.latest;
     if (it.A.status === '待触发' && p >= it.A.trigger) candA.push(it);
     else if (it.B.status === '待触发' && p <= it.B.zone[1] && p >= it.B.zone[0]) candB.push(it);
-    if (it.B.status === '待触发' && p < it.B.stop && !firedSet.has('RISK·破止损|' + it.code)) {
-      R.alertBanner('⚠风险·跌破关键位', it.code, it.name, `现价 ${p} < 止损参考 ${it.B.stop}, 放弃低吸勿接飞刀`);
-      process.stdout.write('\x07');
-      J.appendAlert(today, { kind: 'RISK·破止损', code: it.code, text: `现价${p}<${it.B.stop}` });
-      firedSet.add('RISK·破止损|' + it.code);
+    if (it.B.status === '待触发' && it.prevClose > 0) {
+      const execStop = Math.max(it.B.stop, limitDownPrice(it.code, it.prevClose) + 0.02); // 止损必须可执行(高于跌停价)
+      if (p < execStop && !firedSet.has('RISK·破止损|' + it.code)) {
+        R.alertBanner('⚠风险·跌破关键位', it.code, it.name, `现价 ${p} < 可执行止损 ${execStop}(原计划${it.B.stop}), 放弃低吸勿接飞刀`);
+        process.stdout.write('\x07');
+        J.appendAlert(today, { kind: 'RISK·破止损', code: it.code, text: `现价${p}<可执行止损${execStop.toFixed(2)}` });
+        firedSet.add('RISK·破止损|' + it.code);
+      }
     }
   }
   if (!candA.length && !candB.length) return;
@@ -114,7 +123,25 @@ async function tick(client, firedSet) {
   }
   if (!candA.length && !candB.length) return;
 
-  // 板块同向(sector_data真值, 按板块TTL缓存): 所属板块当日涨跌幅低于阈值则A卡挂起
+  // B卡当日急跌否决: 相对昨收跌幅≥bMaxDayDropPct(默认6%) → 瀑布中不接飞刀, B挂起
+  if (candB.length && CONF.bMaxDayDropPct) {
+    const candB2 = [];
+    for (const it of candB) {
+      const s = px[it.code];
+      const drop = it.prevClose > 0 ? s.latest / it.prevClose - 1 : 0;
+      if (drop <= -CONF.bMaxDayDropPct / 100) {
+        if (!firedSet.has('INFO·破位急跌|' + it.code)) {
+          console.log(`[${hm}] ⛔ ${it.code} ${it.name} 当日${(drop * 100).toFixed(1)}%≤-${CONF.bMaxDayDropPct}%急跌, B卡挂起勿接飞刀`);
+          J.appendAlert(today, { kind: 'INFO·破位急跌', code: it.code, text: `当日${(drop * 100).toFixed(1)}%急跌,B挂起` });
+          firedSet.add('INFO·破位急跌|' + it.code);
+        }
+        continue;
+      }
+      candB2.push(it);
+    }
+    candB = candB2;
+  }
+  if (!candA.length && !candB.length) return;
   if (candA.length && CONF.sectorConfirm) {
     const candA2 = [];
     const boards = [...new Set(candA.map((x) => x.board).filter(Boolean))];
