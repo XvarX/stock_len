@@ -171,18 +171,30 @@ async function tick(client, firedSet) {
       if (firedSet.has(key)) continue;
       const p = px[it.code].latest;
       const cf = IND.evaluateConfirmations(intradayMap[it.code], { px: p, stabilize: false });
-      const vwapOk = !CONF.aRequireVwap || cf.aboveVwap === true;
-      const volOk = !isFinite(cf.breakoutVolRatio) || cf.breakoutVolRatio >= CONF.aVolRatioMin;
-      const confTxt = `VWAP(${cf.vwap ? cf.vwap.toFixed(2) : '-'}):${vwapOk ? '过' : '未过'} 放量比(${isFinite(cf.breakoutVolRatio) ? cf.breakoutVolRatio.toFixed(1) : '-'}/${CONF.aVolRatioMin}):${volOk ? '足' : '不足'}`;
-      if (vwapOk && volOk) {
-        R.alertBanner('A·强势突破', it.code, it.name, `现价 ${p} ≥ 触发 ${it.A.trigger} | ${confTxt} | 止损 ${it.A.stop}`);
+      // A卡七关: 追深上限/未封板/VWAP/放量比/分时量结构/资金/站稳5分钟
+      const gates = [];
+      gates.push(['追深', p <= it.A.trigger * (1 + CONF.aMaxChasePct / 100)]);
+      const lp = it.prevClose > 0 ? Math.round(it.prevClose * (1 + IND.limitUpPct(it.code) / 100) * 100) / 100 : null;
+      gates.push(['未封板', !(lp != null && p >= lp - 0.001)]);
+      gates.push(['VWAP', !CONF.aRequireVwap || cf.aboveVwap === true]);
+      gates.push(['放量比', !isFinite(cf.breakoutVolRatio) || cf.breakoutVolRatio >= CONF.aVolRatioMin]);
+      gates.push(['量结构', cf.bounceVolOk !== false]); // 回升分钟放量(防对倒拉); null=样本不足放行
+      gates.push(['资金', it.flow == null || it.flow.today == null || !isFinite(it.flow.today) || it.flow.today >= CONF.aFlowMin]);
+      const bars = intradayMap[it.code] || [];
+      gates.push(['站稳5分钟', bars.length < 5 || bars.slice(-5).every((b) => b.close >= it.A.trigger * 0.99)]);
+      const failed = gates.filter((g) => !g[1]).map((g) => g[0]);
+      const confTxt = `VWAP(${cf.vwap ? cf.vwap.toFixed(2) : '-'}):${vwapOk ? '过' : '未过'} 放量比(${isFinite(cf.breakoutVolRatio) ? cf.breakoutVolRatio.toFixed(1) : '-'}/${CONF.aVolRatioMin}) 未过关:${failed.join('/') || '无'}`;
+      if (!failed.length) {
+        R.alertBanner('A·强势突破(七关确认)', it.code, it.name, `现价 ${p} ≥ 触发 ${it.A.trigger} | 七关全过(VWAP${cf.vwap ? cf.vwap.toFixed(2) : '-'} 放量比${isFinite(cf.breakoutVolRatio) ? cf.breakoutVolRatio.toFixed(1) : '-'} 资金/量结构/站稳OK) | 风控线 ${it.A.stop} | T+1: 明日才可卖`);
         process.stdout.write('\x07');
-        J.appendAlert(today, { kind: 'A·突破', code: it.code, text: `现价${p}≥${it.A.trigger}; ${confTxt}` });
+        J.appendAlert(today, { kind: 'A·突破', code: it.code, text: `现价${p}≥${it.A.trigger}; 七关全过` });
         firedSet.add(key);
-      } else if (!firedSet.has('INFO·待确认|' + it.code)) {
-        console.log(`[${hm}] ⏳ ${it.code} ${it.name} 价过触发线但确认不足: ${confTxt}`);
-        J.appendAlert(today, { kind: 'INFO·待确认', code: it.code, text: `价达${p}>${it.A.trigger},${confTxt}` });
-        firedSet.add('INFO·待确认|' + it.code);
+      } else if (!firedSet.has('INFO·待确认|' + it.code) || failed.some((f) => ['追深', '未封板', '资金', '站稳5分钟'].includes(f))) {
+        console.log(`[${hm}] ⏳ ${it.code} ${it.name} A确认不足: ${failed.join('/')} | ${p} vs 触发${it.A.trigger}`);
+        if (!firedSet.has('INFO·待确认|' + it.code)) {
+          J.appendAlert(today, { kind: 'INFO·待确认', code: it.code, text: `价达${p},确认不足:${failed.join('/')}` });
+          firedSet.add('INFO·待确认|' + it.code);
+        }
       }
     }
     for (const it of candB.filter((x) => chunk.includes(x.code))) {
@@ -199,14 +211,20 @@ async function tick(client, firedSet) {
         const bp = await f.sectorPct(it.board, CONF.sectorCacheSec || 300);
         if (bp != null && isFinite(bp)) { sectorOk = bp >= CONF.bSectorMin; sectorPctTxt = bp.toFixed(2) + '%'; }
       }
-      if (stabOk && volOk && structOk && sectorOk) {
-        R.alertBanner('B·进入低吸带(五关确认)', it.code, it.name, `现价 ${p} 位于 ${it.B.zone[0]}~${it.B.zone[1]} | 企稳v2+量价结构+板块(${sectorPctTxt})全过 | 风控线 ${it.B.stop} | T+1: 今日买入明日才能卖`);
+      // B卡资金门: 当日大幅流出/5日累计为负 否决(缺数据放行)
+      const bFlowOk = it.flow == null || it.flow.today == null || !isFinite(it.flow.today) ? true : (it.flow.today >= -5e7 && (it.flow.cum5 == null || !isFinite(it.flow.cum5) || it.flow.cum5 > 0));
+      // B卡浅锚破开盘降级: 昨日涨停票(浅锚)价格破今日开盘价 → 分歧转弱, 只记观察不响铃
+      const shallow = String(it.B.anchor || '').startsWith('浅锚');
+      const openOk = !(shallow && s.openPrice > 0 && p < s.openPrice);
+      if (stabOk && volOk && structOk && sectorOk && bFlowOk && openOk) {
+        R.alertBanner('B·进入低吸带(六关确认)', it.code, it.name, `现价 ${p} 位于 ${it.B.zone[0]}~${it.B.zone[1]} | ${it.B.anchor || ''} | 企稳v2+量价结构+板块(${sectorPctTxt})+资金全过 | 风控线 ${it.B.stop} | T+1: 今日买入明日才能卖`);
         process.stdout.write('\x07');
-        J.appendAlert(today, { kind: 'B·低吸带', code: it.code, text: `${p}入带${it.B.zone.join('~')},企稳v2确认` });
+        J.appendAlert(today, { kind: 'B·低吸带', code: it.code, text: `${p}入带${it.B.zone.join('~')},六关确认` });
         firedSet.add(key);
-      } else if (!firedSet.has('INFO·待确认|' + it.code)) {
-        console.log(`[${hm}] ⏳ ${it.code} ${it.name} 入低吸带但确认不足(企稳:${cf.stabilized}, 量价结构:${cf.bounceVolOk}, 缩量比:${cf.retractVolRatio?.toFixed?.(2)}, 板块:${sectorPctTxt}), 待确认`);
-        J.appendAlert(today, { kind: 'INFO·待确认', code: it.code, text: `入带${p}未确认企稳` });
+      } else if (!firedSet.has('INFO·待确认|' + it.code) || !openOk || !bFlowOk) {
+        const fails = [stabOk ? '' : '企稳v2', volOk ? '' : '缩量', structOk ? '' : '量价结构', sectorOk ? '' : '板块', bFlowOk ? '' : '资金流出', openOk ? '' : '破开盘(浅锚降级)'].filter(Boolean);
+        console.log(`[${hm}] ⏳ ${it.code} ${it.name} 入低吸带但确认不足: ${fails.join('/')} | ${p}`);
+        J.appendAlert(today, { kind: 'INFO·待确认', code: it.code, text: `入带${p}未确认:${fails.join('/')}` });
         firedSet.add('INFO·待确认|' + it.code);
       }
     }

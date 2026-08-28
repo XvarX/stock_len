@@ -20,7 +20,7 @@
     "posPerStockMax": 0.3,
     "dailyStopLossLimit": 2
   },
-  "confirm": { "aRequireVwap": true, "aVolRatioMin": 2, "marketConfirm": true, "marketPctMin": 0, "bRequireStabilize": true, "bRetractVolRatioMax": 1.0, "bMaxDayDropPct": 6 },
+  "confirm": { "aRequireVwap": true, "aVolRatioMin": 2, "aMaxChasePct": 2, "aFlowMin": 0, "marketConfirm": true, "marketPctMin": 0, "bRequireStabilize": true, "bRetractVolRatioMax": 1.0, "bMaxDayDropPct": 6 },
   "poll": {
     "intervalSec": 60,
     "sessions": [["09:31", "11:30"], ["13:01", "15:00"]]

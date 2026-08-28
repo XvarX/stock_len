@@ -51,6 +51,7 @@ async function main() {
         items: valid.map((st) => ({
           code: st.code, name: st.name, board: st.board || null,
           prevClose: Number(st.cards.refClose.toFixed(2)), score: st.score.composite,
+          flow: st.ds.flow ? { today: st.ds.flow.today, cum5: st.ds.flow.cum5 } : null,
           A: st.cards.A, B: st.cards.B,
           notes: [st.score.grade, st.ds.posTag, ...(st.cards.guardNotes || [])],
         })),
