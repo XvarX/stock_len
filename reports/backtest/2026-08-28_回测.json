@@ -5,47 +5,52 @@
   "sweep": [
     {
       "cap": "2%",
-      "aSig": 0,
-      "bSig": 0,
-      "allSig": 0,
-      "allWin": "-",
-      "allMean": "-",
-      "allMin": "-",
-      "allMax": "-"
+      "aSig": 10,
+      "bSig": 3,
+      "allSig": 13,
+      "allWin": 85,
+      "allMean": 3.22,
+      "allMin": -4.81,
+      "allMax": 8.71
     },
     {
       "cap": "5%",
-      "aSig": 0,
-      "bSig": 0,
-      "allSig": 0,
-      "allWin": "-",
-      "allMean": "-",
-      "allMin": "-",
-      "allMax": "-"
+      "aSig": 14,
+      "bSig": 3,
+      "allSig": 17,
+      "allWin": 82,
+      "allMean": 2.47,
+      "allMin": -6.35,
+      "allMax": 8.71
     },
     {
-      "cap": "10%",
-      "aSig": 0,
-      "bSig": 0,
-      "allSig": 0,
-      "allWin": "-",
-      "allMean": "-",
-      "allMin": "-",
-      "allMax": "-"
+      "cap": "8%",
+      "aSig": 18,
+      "bSig": 3,
+      "allSig": 21,
+      "allWin": 76,
+      "allMean": 2.63,
+      "allMin": -6.35,
+      "allMax": 13.18
     },
     {
       "cap": "不设限",
-      "aSig": 0,
-      "bSig": 0,
-      "allSig": 0,
-      "allWin": "-",
-      "allMean": "-",
-      "allMin": "-",
-      "allMax": "-"
+      "aSig": 18,
+      "bSig": 3,
+      "allSig": 21,
+      "allWin": 71,
+      "allMean": 2.59,
+      "allMin": -6.35,
+      "allMax": 13.18
     }
   ],
   "strategy": {
-    "n": 0
+    "n": 13,
+    "win": 85,
+    "mean": 3.22,
+    "med": 2.78,
+    "min": -4.81,
+    "max": 8.71
   },
   "naive": {
     "n": 25,
@@ -56,10 +61,20 @@
     "max": 15.62
   },
   "stratLimit": {
-    "n": 0
+    "n": 3,
+    "win": 100,
+    "mean": 8.01,
+    "med": 8.01,
+    "min": 7.32,
+    "max": 8.71
   },
   "stratMid": {
-    "n": 0
+    "n": 10,
+    "win": 80,
+    "mean": 1.78,
+    "med": 2.67,
+    "min": -4.81,
+    "max": 4.09
   },
   "trades": [
     {
@@ -299,7 +314,7 @@
     },
     {
       "code": "002437",
-      "name": "誉衡药业",
+      "name": "誉衡���业",
       "layer": "涨停层",
       "prevClose": 4.42,
       "boards": 0,

@@ -124,7 +124,7 @@ async function main() {
   /* ④ 逐票: 计划(≤昨日) → 逐分钟重放(追深上限可扫描) */
   function replayPool(chaseCap) {
     const conf = Object.assign({}, GCONF, { aMaxChasePct: chaseCap });
-    const trades = [], naiveTrades = [], skipped = [], naiveDiag = [];
+    const trades = [], naiveTrades = [], skipped = [], naiveDiag = [], nearMiss = {};
   for (const u of movers) {
     const barsAll = dailyAll[u.code] || [];
     const barsPlan = barsAll.filter((b) => String(b.date) <= yesterdayKey);
@@ -149,6 +149,13 @@ async function main() {
       const t = String(bar.time).slice(-5);
       const barsSoFar = tb.slice(0, i + 1);
 
+      // A卡接近度追踪: 记录全天"失败门最少"的那一刻
+      if (item.A.status === '待触发' && p >= item.A.trigger) {
+        const ra = G.evaluateA({ item, price: p, bars: barsSoFar, conf, marketOk: marketOkAt(t), sectorOk: true });
+        const key2 = u.code;
+        const cur = { failed: ra.failed.join('/'), n: ra.failed.length, time: t, price: p };
+        if (!nearMiss[key2] || ra.failed.length < nearMiss[key2].n) nearMiss[key2] = cur;
+      }
       // 裸追对照 + 诊断: 同一分钟A卡卡在哪关
       if (!naiveEntry && p >= naiveHi) {
         naiveEntry = { kind: '裸追', price: p, time: t };
@@ -162,14 +169,15 @@ async function main() {
 
       // A卡
       if (!entry && item.A.status === '待触发' && p >= item.A.trigger) {
-        const r = G.evaluateA({ item, price: p, bars: barsSoFar, conf: GCONF, marketOk: marketOkAt(t), sectorOk: true }); // sector门退化放行(板块真值非逐分钟可得)
-        if (r.pass) { entry = { kind: 'A', price: p, time: t }; }
+        const r = G.evaluateA({ item, price: p, bars: barsSoFar, conf, marketOk: marketOkAt(t), sectorOk: true }); // sector门退化放行(板块真值非逐分钟可得)
+        if (r.pass) { console.log('[DEBUG pass]', u.code, t, p, 'cap=', conf.aMaxChasePct); entry = { kind: 'A', price: p, time: t }; }
+        else if (process.env.BT_DEBUG) console.log('[DBG]', u.code, t, p, r.failed.join('/'));
         else if (r.failed.length === 1 && r.failed[0] === '未封板') { sealWait = true; } // 封板中等待开板
         else lastFails.A = r.failed;
       }
       // B卡(未被A占先)
       if (!entry && item.B.status === '待触发' && p >= item.B.zone[0] && p <= item.B.zone[1]) {
-        const r = G.evaluateB({ item, price: p, openPrice: tb[0].open, bars: barsSoFar, conf: GCONF, marketOk: marketOkAt(t), sectorOk: true });
+        const r = G.evaluateB({ item, price: p, openPrice: tb[0].open, bars: barsSoFar, conf, marketOk: marketOkAt(t), sectorOk: true });
         if (r.pass) entry = { kind: 'B', price: p, time: t };
         else lastFails.B = r.failed;
       }
@@ -195,7 +203,7 @@ async function main() {
       naiveTrades.push({ code: u.code, ...naiveEntry, closeP, dayReturn: +((closeP / naiveEntry.price - 1) * 100).toFixed(2) });
     }
     }
-    return { trades, naiveTrades, skipped, naiveDiag };
+    return { trades, naiveTrades, skipped, naiveDiag, nearMiss };
   }
 
   // 追深参数扫描(纯本地计算)
@@ -203,9 +211,9 @@ async function main() {
   let naiveAgg = null;
   for (const cap of [2, 5, 10, 999]) {
     const rp = replayPool(cap);
-    const a = agg(rp.trades.filter((t) => t.entry && t.kind === 'A').map((t) => t.dayReturn));
-    const b = agg(rp.trades.filter((t) => t.entry && t.kind === 'B').map((t) => t.dayReturn));
-    const all = agg(rp.trades.filter((t) => t.entry).map((t) => t.dayReturn));
+    const a = agg(rp.trades.filter((t) => t.kind === 'A').map((t) => t.dayReturn));
+    const b = agg(rp.trades.filter((t) => t.kind === 'B').map((t) => t.dayReturn));
+    const all = agg(rp.trades.filter((t) => t.kind).map((t) => t.dayReturn));
     if (!naiveAgg) naiveAgg = agg(rp.naiveTrades.map((t) => t.dayReturn));
     sweepRows.push({ cap: cap === 999 ? '不设限' : cap + '%', aSig: a.n || 0, bSig: b.n || 0, allSig: all.n || 0, allWin: all.win ?? '-', allMean: all.mean ?? '-', allMin: all.min ?? '-', naiveMean: naiveAgg.mean ?? '-' });
   }
@@ -213,19 +221,27 @@ async function main() {
   /* ⑤ 统计与报告: 追深参数扫描(纯本地计算) + 明细(标准档2%) */
   const sweep = [];
   let detailRp = null, naive = null;
-  for (const cap of [2, 5, 10, 999]) {
+  const variants = [
+    { cap: 2, label: '现行(追深2%)' },
+    { cap: 5, label: '迟到确认5%(新规则)', late: 5 },
+    { cap: 8, label: '迟到确认8%', late: 8 },
+    { cap: 999, label: '不设限' },
+  ];
+  for (const v of variants) {
+    const cap = v.cap;
+    if (v.late != null) GCONF.aLateMaxPct = v.late; else delete GCONF.aLateMaxPct;
     const rp = replayPool(cap);
     if (cap === 2) detailRp = rp;
-    const a = agg(rp.trades.filter((t) => t.entry && t.kind === 'A').map((t) => t.dayReturn));
-    const b = agg(rp.trades.filter((t) => t.entry && t.kind === 'B').map((t) => t.dayReturn));
-    const all = agg(rp.trades.filter((t) => t.entry).map((t) => t.dayReturn));
+    const a = agg(rp.trades.filter((t) => t.kind === 'A').map((t) => t.dayReturn));
+    const b = agg(rp.trades.filter((t) => t.kind === 'B').map((t) => t.dayReturn));
+    const all = agg(rp.trades.filter((t) => t.kind).map((t) => t.dayReturn));
     naive = agg(rp.naiveTrades.map((t) => t.dayReturn));
     sweep.push({ cap: cap === 999 ? '不设限' : cap + '%', aSig: a.n || 0, bSig: b.n || 0, allSig: all.n || 0, allWin: all.win ?? '-', allMean: all.mean ?? '-', allMin: all.min ?? '-', allMax: all.max ?? '-' });
   }
   const detail = detailRp;
-  const entries = detail.trades.filter((t) => t.entry);
+  const entries = detail.trades.filter((t) => t.kind);
   const strat = agg(entries.map((t) => t.dayReturn));
-  const sealBlocked = detail.trades.filter((t) => t.sealWait && !t.entry).length;
+  const sealBlocked = detail.trades.filter((t) => t.sealWait && !t.kind).length;
   const stratLimit = agg(entries.filter((t) => t.layer === '涨停层').map((t) => t.dayReturn));
   const stratMid = agg(entries.filter((t) => t.layer === '5-10%层').map((t) => t.dayReturn));
   const skipped = detail.skipped, trades = detail.trades;
@@ -248,8 +264,15 @@ async function main() {
     L.push(`| ${t.code} | ${t.name} | ${t.layer} | ${t.boards} | ${t.kind} | ${t.time} | ${t.price} | ${t.closeP} | ${t.dayReturn} | ${t.maxDD} | ${t.riskTouch ? '⚠是' : '否'} |`);
   }
   if (sealBlocked) L.push(`\n封板等待不可成交: ${sealBlocked} 例(涨停封死中不排队买入)`);
-  L.push('\n## 诊断: 裸追触发分钟时A卡卡在哪关');
+  L.push('\n## 诊断A: 裸追触发分钟时A卡卡在哪关');
   for (const d of (detailRp ? detailRp.naiveDiag : [])) L.push(`- ${d.code}: ${d.failed}`);
+  L.push('\n## 诊断B: 全天离通过最近时A卡卡在哪关(按卡点归类)');
+  {
+    const near = Object.values(detailRp ? detailRp.nearMiss : {});
+    const grp = {};
+    for (const n of near) (grp[n.failed] = grp[n.failed] || []).push(n.code + '@' + n.time);
+    Object.entries(grp).sort((a, b) => b[1].length - a[1].length).forEach(([k, v]) => L.push(`- 卡在[${k}]: ${v.length}只 → ${v.join(', ')}`));
+  }
   L.push('\n## 未触发/跳过');
   for (const s of skipped) L.push(`- ${s.code}: ${s.reason}`);
   for (const t of trades.filter((x) => x.noEntry)) L.push(`- ${t.code} ${t.name}: 全日未过确认链${t.sealWait ? '(封板等待中)' : ''}${t.lastFails.A ? ' 最近A未过关:' + t.lastFails.A.join('/') : ''}`);
