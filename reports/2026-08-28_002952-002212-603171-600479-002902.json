@@ -1,6 +1,6 @@
 {
   "version": "stock-lens-report/1",
-  "generatedAt": "2026-08-28T02:54:35.631Z",
+  "generatedAt": "2026-08-28T03:00:10.820Z",
   "mode": "scan",
   "scanSource": "数字经济(大涨集群8只), 人工智能(大涨集群8只)",
   "dataDate": "20260827",
@@ -430,8 +430,8 @@
   ],
   "scanMeta": {
     "emotion": {
-      "regime": "low",
-      "label": "低迷(仅首板先手/轻仓观察, 冰点或退潮待晋级率数据区分)"
+      "regime": "normal",
+      "label": "正常(主线龙头可作, 分歧低吸优先)"
     },
     "ladder": {
       "first": 0,
@@ -541,21 +541,47 @@
       "headline": "数字货币概念爆发，新晨科技盘中涨停"
     },
     "catalystBoard": "数字经济",
-    "limitUpCount": 24,
-    "scannedAt": "2026-08-28T02:54:35.624Z"
+    "limitUpCount": 58,
+    "limitUpFiltered": 25,
+    "scannedAt": "2026-08-28T03:00:10.812Z"
   },
   "timing": {
-    "totalMs": 1026,
+    "totalMs": 9463,
     "calls": [
       {
         "name": "stock.search_stocks",
         "ok": true,
-        "ms": 204
+        "ms": 300
+      },
+      {
+        "name": "stock.search_stocks",
+        "ok": true,
+        "ms": 192
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2736
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 2993
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": false,
+        "ms": 447
+      },
+      {
+        "name": "stock.get_stock_info",
+        "ok": true,
+        "ms": 1917
       },
       {
         "name": "news.search_news",
         "ok": true,
-        "ms": 822
+        "ms": 878
       }
     ]
   }

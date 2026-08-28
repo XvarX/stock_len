@@ -118,7 +118,7 @@ async function main() {
     const ok = result.stocks.filter((s) => !s.error && s.boardStreak);
     const streaks = ok.map((s) => s.boardStreak);
     const maxBoards = Math.max(0, ...streaks.map((x) => x.boards));
-    const emotion = LU.classifyEmotion(sc.rawGainCount || finalCodes.length, maxBoards);
+    const emotion = LU.classifyEmotion(sc.marketLimitUpCount || sc.rawGainCount || finalCodes.length, maxBoards);
     const ladder = LU.ladderStats(streaks);
     // 首板日时序排名(早=高分)
     const dates = [...new Set(streaks.map((x) => x.firstDate).filter(Boolean))].sort();
@@ -142,7 +142,8 @@ async function main() {
     if (topBoard) catalyst = await f.newsCatalyst(topBoard, 3);
     result.scanMeta = {
       emotion, ladder, leaders, catalyst, catalystBoard: topBoard,
-      limitUpCount: sc.rawGainCount || finalCodes.length,
+      limitUpCount: sc.marketLimitUpCount || sc.rawGainCount || finalCodes.length,
+      limitUpFiltered: sc.rawGainCount || 0,
       scannedAt: new Date().toISOString(),
     };
   }
