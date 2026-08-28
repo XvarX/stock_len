@@ -104,7 +104,8 @@ async function tick(client, firedSet) {
   // 需要分时确认的标的去重取数(fresh); A卡候选存在时附带大盘同向校验
   const uniq = [...new Set([...candA.map((x) => x.code), ...candB.map((x) => x.code)])];
   let mkt = null;
-  if (candA.length && CONF.marketConfirm) {
+  const needMkt = (candA.length && CONF.marketConfirm) || (candB.length && CONF.bMarketConfirm);
+  if (needMkt) {
     try {
       mkt = await f.benchmarkSnapshot();
       const vals = Object.values(mkt).map((v) => v.pct).filter(isFinite);
@@ -191,13 +192,20 @@ async function tick(client, firedSet) {
       const cf = IND.evaluateConfirmations(intradayMap[it.code], {});
       const stabOk = !CONF.bRequireStabilize || cf.stabilized === true;
       const volOk = !isFinite(cf.retractVolRatio) || cf.retractVolRatio <= CONF.bRetractVolRatioMax;
-      if (stabOk && volOk) {
-        R.alertBanner('B·进入低吸带(企稳v2)', it.code, it.name, `现价 ${p} 位于 ${it.B.zone[0]}~${it.B.zone[1]} | 低点抬升+收复15分钟VWAP(${cf.vwap15 ? cf.vwap15.toFixed(2) : '-'})+缩量(${isFinite(cf.retractVolRatio) ? cf.retractVolRatio.toFixed(2) : '-'}) | 风控线 ${it.B.stop} | 注意T+1: 今日买入明日才能卖`);
+      const structOk = !CONF.bVolStructure || cf.bounceVolOk !== false; // null=回升/下跌样本不足, 放行
+      // B卡板块门(所属板块当日≥bSectorMin, 默认-1%): 板块领跌时"便宜"是陷阱
+      let sectorOk = true, sectorPctTxt = '-';
+      if (CONF.bSectorConfirm && it.board) {
+        const bp = await f.sectorPct(it.board, CONF.sectorCacheSec || 300);
+        if (bp != null && isFinite(bp)) { sectorOk = bp >= CONF.bSectorMin; sectorPctTxt = bp.toFixed(2) + '%'; }
+      }
+      if (stabOk && volOk && structOk && sectorOk) {
+        R.alertBanner('B·进入低吸带(五关确认)', it.code, it.name, `现价 ${p} 位于 ${it.B.zone[0]}~${it.B.zone[1]} | 企稳v2+量价结构+板块(${sectorPctTxt})全过 | 风控线 ${it.B.stop} | T+1: 今日买入明日才能卖`);
         process.stdout.write('\x07');
         J.appendAlert(today, { kind: 'B·低吸带', code: it.code, text: `${p}入带${it.B.zone.join('~')},企稳v2确认` });
         firedSet.add(key);
       } else if (!firedSet.has('INFO·待确认|' + it.code)) {
-        console.log(`[${hm}] ⏳ ${it.code} ${it.name} 入低吸带但企稳v2不足(抬升+收复VWAP15:${cf.reclaimVwap15}, 缩量比:${cf.retractVolRatio?.toFixed?.(2)}), 待确认`);
+        console.log(`[${hm}] ⏳ ${it.code} ${it.name} 入低吸带但确认不足(企稳:${cf.stabilized}, 量价结构:${cf.bounceVolOk}, 缩量比:${cf.retractVolRatio?.toFixed?.(2)}, 板块:${sectorPctTxt}), 待确认`);
         J.appendAlert(today, { kind: 'INFO·待确认', code: it.code, text: `入带${p}未确认企稳` });
         firedSet.add('INFO·待确认|' + it.code);
       }
