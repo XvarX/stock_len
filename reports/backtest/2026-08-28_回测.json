@@ -1,0 +1,897 @@
+{
+  "version": "stock-lens-backtest/1",
+  "date": "2026-08-28",
+  "pool": 46,
+  "sweep": [
+    {
+      "cap": "2%",
+      "aSig": 0,
+      "bSig": 0,
+      "allSig": 0,
+      "allWin": "-",
+      "allMean": "-",
+      "allMin": "-",
+      "allMax": "-"
+    },
+    {
+      "cap": "5%",
+      "aSig": 0,
+      "bSig": 0,
+      "allSig": 0,
+      "allWin": "-",
+      "allMean": "-",
+      "allMin": "-",
+      "allMax": "-"
+    },
+    {
+      "cap": "10%",
+      "aSig": 0,
+      "bSig": 0,
+      "allSig": 0,
+      "allWin": "-",
+      "allMean": "-",
+      "allMin": "-",
+      "allMax": "-"
+    },
+    {
+      "cap": "不设限",
+      "aSig": 0,
+      "bSig": 0,
+      "allSig": 0,
+      "allWin": "-",
+      "allMean": "-",
+      "allMin": "-",
+      "allMax": "-"
+    }
+  ],
+  "strategy": {
+    "n": 0
+  },
+  "naive": {
+    "n": 25,
+    "win": 64,
+    "mean": 2.5,
+    "med": 2.26,
+    "min": -3.45,
+    "max": 15.62
+  },
+  "stratLimit": {
+    "n": 0
+  },
+  "stratMid": {
+    "n": 0
+  },
+  "trades": [
+    {
+      "code": "000062",
+      "name": "深圳华强",
+      "layer": "涨停层",
+      "prevClose": 22.59,
+      "boards": 0,
+      "triggerA": 24.02,
+      "triggerB": [
+        22.42,
+        22.88
+      ],
+      "naiveHi": 23.95,
+      "lastFails": {
+        "B": [
+          "量价结构"
+        ]
+      },
+      "kind": "B",
+      "price": 22.86,
+      "time": "09:37",
+      "closeP": 24.85,
+      "dayReturn": 8.71,
+      "maxDD": -0.48,
+      "riskTouch": false
+    },
+    {
+      "code": "000567",
+      "name": "海德股份",
+      "layer": "涨停层",
+      "prevClose": 6.37,
+      "boards": 0,
+      "triggerA": 6.44,
+      "triggerB": [
+        6.01,
+        6.13
+      ],
+      "naiveHi": 6.42,
+      "lastFails": {
+        "A": [
+          "量结构"
+        ]
+      },
+      "kind": "A",
+      "price": 6.49,
+      "time": "09:37",
+      "closeP": 7.01,
+      "dayReturn": 8.01,
+      "maxDD": -0.46,
+      "riskTouch": false
+    },
+    {
+      "code": "000712",
+      "name": "锦龙股份",
+      "layer": "涨停层",
+      "prevClose": 10.73,
+      "boards": 1,
+      "triggerA": 10.76,
+      "triggerB": [
+        10.19,
+        10.41
+      ],
+      "naiveHi": 10.73,
+      "lastFails": {
+        "A": [
+          "追深",
+          "未封板",
+          "VWAP"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "001232",
+      "name": "嘉立创",
+      "layer": "5-10%层",
+      "prevClose": 162.03,
+      "boards": 1,
+      "triggerA": 235.2,
+      "triggerB": [
+        153.93,
+        157.17
+      ],
+      "naiveHi": 234.5,
+      "lastFails": {},
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "002092",
+      "name": "中泰化学",
+      "layer": "5-10%层",
+      "prevClose": 4.56,
+      "boards": 0,
+      "triggerA": 4.66,
+      "triggerB": [
+        4.43,
+        4.51
+      ],
+      "naiveHi": 4.65,
+      "lastFails": {
+        "A": [
+          "放量比"
+        ]
+      },
+      "kind": "A",
+      "price": 4.67,
+      "time": "10:46",
+      "closeP": 4.8,
+      "dayReturn": 2.78,
+      "maxDD": -0.21,
+      "riskTouch": false
+    },
+    {
+      "code": "002129",
+      "name": "TCL中环",
+      "layer": "5-10%层",
+      "prevClose": 9.19,
+      "boards": 0,
+      "triggerA": 9.99,
+      "triggerB": [
+        9.32,
+        9.5
+      ],
+      "naiveHi": 9.96,
+      "lastFails": {
+        "B": [
+          "企稳v2"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "002155",
+      "name": "湖南黄金",
+      "layer": "5-10%层",
+      "prevClose": 27.02,
+      "boards": 1,
+      "triggerA": 27.63,
+      "triggerB": [
+        25.67,
+        26.21
+      ],
+      "naiveHi": 27.55,
+      "lastFails": {
+        "A": [
+          "追深",
+          "放量比",
+          "量结构"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "002354",
+      "name": "天娱数科",
+      "layer": "涨停层",
+      "prevClose": 7.14,
+      "boards": 0,
+      "triggerA": 9,
+      "triggerB": [
+        7.43,
+        7.58
+      ],
+      "naiveHi": 8.97,
+      "lastFails": {},
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "002396",
+      "name": "星网锐捷",
+      "layer": "涨停层",
+      "prevClose": 33.35,
+      "boards": 1,
+      "triggerA": 34.8,
+      "triggerB": [
+        31.68,
+        32.35
+      ],
+      "naiveHi": 34.7,
+      "lastFails": {
+        "A": [
+          "追深",
+          "未封板",
+          "放量比"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "002407",
+      "name": "多氟多",
+      "layer": "5-10%层",
+      "prevClose": 35.12,
+      "boards": 0,
+      "triggerA": 40.12,
+      "triggerB": [
+        35.97,
+        36.69
+      ],
+      "naiveHi": 40,
+      "lastFails": {},
+      "kind": "B",
+      "price": 35.98,
+      "time": "09:47",
+      "closeP": 36.94,
+      "dayReturn": 2.67,
+      "maxDD": -2.31,
+      "riskTouch": true
+    },
+    {
+      "code": "002430",
+      "name": "杭氧股份",
+      "layer": "5-10%层",
+      "prevClose": 24.65,
+      "boards": 0,
+      "triggerA": 24.92,
+      "triggerB": [
+        23.24,
+        23.7
+      ],
+      "naiveHi": 24.85,
+      "lastFails": {
+        "A": [
+          "追深",
+          "放量比"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "002437",
+      "name": "誉衡药业",
+      "layer": "涨停层",
+      "prevClose": 4.42,
+      "boards": 0,
+      "triggerA": 5.12,
+      "triggerB": [
+        4.4,
+        4.48
+      ],
+      "naiveHi": 5.1,
+      "lastFails": {
+        "B": [
+          "企稳v2",
+          "缩量"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "002440",
+      "name": "闰土股份",
+      "layer": "5-10%层",
+      "prevClose": 13.07,
+      "boards": 0,
+      "triggerA": 14.03,
+      "triggerB": [
+        12.4,
+        12.66
+      ],
+      "naiveHi": 13.99,
+      "lastFails": {
+        "A": [
+          "放量比"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "002636",
+      "name": "金安国纪",
+      "layer": "5-10%层",
+      "prevClose": 69.41,
+      "boards": 1,
+      "triggerA": 72.61,
+      "triggerB": [
+        65.94,
+        67.33
+      ],
+      "naiveHi": 72.39,
+      "lastFails": {
+        "A": [
+          "VWAP"
+        ]
+      },
+      "kind": "A",
+      "price": 73.9,
+      "time": "09:43",
+      "closeP": 73.18,
+      "dayReturn": -0.97,
+      "maxDD": -1.33,
+      "riskTouch": false
+    },
+    {
+      "code": "300005",
+      "name": "探路者",
+      "layer": "5-10%层",
+      "prevClose": 10.66,
+      "boards": 0,
+      "triggerA": 12.76,
+      "triggerB": [
+        10.92,
+        11.14
+      ],
+      "naiveHi": 12.72,
+      "lastFails": {
+        "B": [
+          "企稳v2"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "300170",
+      "name": "汉得信息",
+      "layer": "5-10%层",
+      "prevClose": 15.3,
+      "boards": 0,
+      "triggerA": 19.16,
+      "triggerB": [
+        15.87,
+        16.19
+      ],
+      "naiveHi": 19.1,
+      "lastFails": {
+        "B": [
+          "企稳v2"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "300319",
+      "name": "麦捷科技",
+      "layer": "5-10%层",
+      "prevClose": 18.99,
+      "boards": 0,
+      "triggerA": 19.99,
+      "triggerB": [
+        18.33,
+        18.71
+      ],
+      "naiveHi": 19.93,
+      "lastFails": {
+        "A": [
+          "追深",
+          "VWAP",
+          "放量比"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "300378",
+      "name": "鼎捷数智",
+      "layer": "涨停层",
+      "prevClose": 31.21,
+      "boards": 0,
+      "triggerA": 38.6,
+      "triggerB": [
+        32.44,
+        33.1
+      ],
+      "naiveHi": 38.48,
+      "lastFails": {},
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "300456",
+      "name": "赛微电子",
+      "layer": "5-10%层",
+      "prevClose": 37.06,
+      "boards": 1,
+      "triggerA": 37.17,
+      "triggerB": [
+        35.21,
+        35.95
+      ],
+      "naiveHi": 37.06,
+      "lastFails": {
+        "A": [
+          "追深",
+          "VWAP",
+          "放量比",
+          "量结构"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "301216",
+      "name": "万凯新材",
+      "layer": "5-10%层",
+      "prevClose": 17.8,
+      "boards": 0,
+      "triggerA": 18.54,
+      "triggerB": [
+        16.67,
+        17.01
+      ],
+      "naiveHi": 18.48,
+      "lastFails": {
+        "A": [
+          "站稳5分钟"
+        ]
+      },
+      "kind": "A",
+      "price": 18.62,
+      "time": "09:47",
+      "closeP": 19.01,
+      "dayReturn": 2.09,
+      "maxDD": -0.11,
+      "riskTouch": false
+    },
+    {
+      "code": "301297",
+      "name": "富乐德",
+      "layer": "5-10%层",
+      "prevClose": 38.2,
+      "boards": 0,
+      "triggerA": 38.62,
+      "triggerB": [
+        35.66,
+        36.38
+      ],
+      "naiveHi": 38.5,
+      "lastFails": {
+        "A": [
+          "追深"
+        ]
+      },
+      "kind": "A",
+      "price": 39.29,
+      "time": "09:36",
+      "closeP": 40.78,
+      "dayReturn": 3.79,
+      "maxDD": -0.31,
+      "riskTouch": false
+    },
+    {
+      "code": "301629",
+      "name": "矽电股份",
+      "layer": "5-10%层",
+      "prevClose": 291,
+      "boards": 0,
+      "triggerA": 293.2,
+      "triggerB": [
+        257.8,
+        263
+      ],
+      "naiveHi": 292.32,
+      "lastFails": {
+        "A": [
+          "追深",
+          "VWAP",
+          "放量比",
+          "量结构"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "600162",
+      "name": "香江控股",
+      "layer": "涨停层",
+      "prevClose": 4.87,
+      "boards": 1,
+      "triggerA": 5.21,
+      "triggerB": [
+        4.63,
+        4.72
+      ],
+      "naiveHi": 5.19,
+      "lastFails": {
+        "A": [
+          "追深",
+          "未封板",
+          "放量比"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "600316",
+      "name": "洪都航空",
+      "layer": "5-10%层",
+      "prevClose": 29.23,
+      "boards": 0,
+      "triggerA": 29.89,
+      "triggerB": [
+        28.48,
+        29.06
+      ],
+      "naiveHi": 29.8,
+      "lastFails": {
+        "A": [
+          "站稳5分钟"
+        ]
+      },
+      "kind": "A",
+      "price": 30.13,
+      "time": "09:49",
+      "closeP": 30.78,
+      "dayReturn": 2.16,
+      "maxDD": -1.06,
+      "riskTouch": false
+    },
+    {
+      "code": "600378",
+      "name": "昊华科技",
+      "layer": "涨停层",
+      "prevClose": 48.46,
+      "boards": 1,
+      "triggerA": 51.68,
+      "triggerB": [
+        46.04,
+        47.01
+      ],
+      "naiveHi": 51.53,
+      "lastFails": {
+        "A": [
+          "追深",
+          "未封板",
+          "放量比"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "600490",
+      "name": "鹏欣资源",
+      "layer": "5-10%层",
+      "prevClose": 7.71,
+      "boards": 0,
+      "triggerA": 7.92,
+      "triggerB": [
+        7.26,
+        7.4
+      ],
+      "naiveHi": 7.9,
+      "lastFails": {
+        "A": [
+          "站稳5分钟"
+        ]
+      },
+      "kind": "A",
+      "price": 7.97,
+      "time": "10:24",
+      "closeP": 8.15,
+      "dayReturn": 2.26,
+      "maxDD": -0.38,
+      "riskTouch": false
+    },
+    {
+      "code": "600562",
+      "name": "国睿科技",
+      "layer": "5-10%层",
+      "prevClose": 27.3,
+      "boards": 0,
+      "triggerA": 27.86,
+      "triggerB": [
+        25.96,
+        26.48
+      ],
+      "naiveHi": 27.78,
+      "lastFails": {},
+      "kind": "A",
+      "price": 27.92,
+      "time": "09:46",
+      "closeP": 28.97,
+      "dayReturn": 3.76,
+      "maxDD": 0,
+      "riskTouch": false
+    },
+    {
+      "code": "600654",
+      "name": "中安科",
+      "layer": "涨停层",
+      "prevClose": 3.3,
+      "boards": 1,
+      "triggerA": 3.31,
+      "triggerB": [
+        3.14,
+        3.2
+      ],
+      "naiveHi": 3.3,
+      "lastFails": {
+        "A": [
+          "追深",
+          "未封板",
+          "放量比"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "600722",
+      "name": "金牛化工",
+      "layer": "涨停层",
+      "prevClose": 13.88,
+      "boards": 0,
+      "triggerA": 15.52,
+      "triggerB": [
+        13.15,
+        13.41
+      ],
+      "naiveHi": 15.47,
+      "lastFails": {},
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "601003",
+      "name": "柳钢股份",
+      "layer": "涨停层",
+      "prevClose": 3.68,
+      "boards": 0,
+      "triggerA": 4.13,
+      "triggerB": [
+        3.61,
+        3.69
+      ],
+      "naiveHi": 4.12,
+      "lastFails": {
+        "B": [
+          "企稳v2"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "605006",
+      "name": "山东玻纤",
+      "layer": "涨停层",
+      "prevClose": 14.13,
+      "boards": 0,
+      "triggerA": 16.65,
+      "triggerB": [
+        14.27,
+        14.55
+      ],
+      "naiveHi": 16.6,
+      "lastFails": {
+        "B": [
+          "企稳v2"
+        ]
+      },
+      "kind": "B",
+      "price": 14.48,
+      "time": "09:35",
+      "closeP": 15.54,
+      "dayReturn": 7.32,
+      "maxDD": 0,
+      "riskTouch": false
+    },
+    {
+      "code": "688183",
+      "name": "生益电子",
+      "layer": "5-10%层",
+      "prevClose": 121.69,
+      "boards": 0,
+      "triggerA": 123.86,
+      "triggerB": [
+        108.68,
+        110.88
+      ],
+      "naiveHi": 123.49,
+      "lastFails": {
+        "A": [
+          "量结构"
+        ]
+      },
+      "kind": "A",
+      "price": 126.04,
+      "time": "09:36",
+      "closeP": 131.2,
+      "dayReturn": 4.09,
+      "maxDD": 0,
+      "riskTouch": false
+    },
+    {
+      "code": "688205",
+      "name": "德科立",
+      "layer": "5-10%层",
+      "prevClose": 159.58,
+      "boards": 0,
+      "triggerA": 176.52,
+      "triggerB": [
+        156.98,
+        160.16
+      ],
+      "naiveHi": 175.99,
+      "lastFails": {
+        "B": [
+          "企稳v2"
+        ],
+        "A": [
+          "VWAP",
+          "放量比"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "688209",
+      "name": "英集芯",
+      "layer": "涨停层",
+      "prevClose": 24.62,
+      "boards": 0,
+      "triggerA": 24.76,
+      "triggerB": [
+        22.51,
+        22.97
+      ],
+      "naiveHi": 24.69,
+      "lastFails": {
+        "A": [
+          "追深",
+          "未封板",
+          "放量比"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    },
+    {
+      "code": "688561",
+      "name": "奇安信",
+      "layer": "5-10%层",
+      "prevClose": 25.28,
+      "boards": 0,
+      "triggerA": 28.08,
+      "triggerB": [
+        25.07,
+        25.57
+      ],
+      "naiveHi": 28,
+      "lastFails": {
+        "A": [
+          "追深"
+        ]
+      },
+      "kind": "A",
+      "price": 28.5,
+      "time": "09:42",
+      "closeP": 27.13,
+      "dayReturn": -4.81,
+      "maxDD": -4.81,
+      "riskTouch": false
+    },
+    {
+      "code": "688583",
+      "name": "思看科技",
+      "layer": "5-10%层",
+      "prevClose": 83.15,
+      "boards": 0,
+      "triggerA": 98.88,
+      "triggerB": [
+        84.34,
+        86.04
+      ],
+      "naiveHi": 98.58,
+      "lastFails": {
+        "B": [
+          "企稳v2"
+        ]
+      },
+      "noEntry": true,
+      "sealWait": false
+    }
+  ],
+  "skipped": [
+    {
+      "code": "601020",
+      "reason": "分时不足(0)"
+    },
+    {
+      "code": "601212",
+      "reason": "分时不足(0)"
+    },
+    {
+      "code": "601222",
+      "reason": "分时不足(0)"
+    },
+    {
+      "code": "601233",
+      "reason": "分时不足(0)"
+    },
+    {
+      "code": "601360",
+      "reason": "分时不足(0)"
+    },
+    {
+      "code": "601678",
+      "reason": "分时不足(0)"
+    },
+    {
+      "code": "603011",
+      "reason": "分时不足(0)"
+    },
+    {
+      "code": "603162",
+      "reason": "分时不足(0)"
+    },
+    {
+      "code": "603171",
+      "reason": "分时不足(0)"
+    },
+    {
+      "code": "603596",
+      "reason": "分时不足(0)"
+    }
+  ]
+}
