@@ -1,5 +1,5 @@
 {
-  "ifindSkillPath": "C:/Users/yexan/.agents/skills/ifind-finance-data/call-node.js",
+  "ifindSkillPath": "auto",
   "dailyCalDays": 100,
   "analysisWindow": 20,
   "throttle": { "maxConcurrent": 2, "minGapMs": 400 },

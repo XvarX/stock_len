@@ -4,7 +4,7 @@
 
 ## 环境前置
 
-- Node.js ≥ 18；数据源为同花顺 iFinD MCP，密钥三选一：环境变量 `IFIND_MCP_KEY` / 项目根 `ifind_key.json` / `config.json` 的 `ifindSkillPath` 所指技能目录的 `mcp_config.json`
+- Node.js ≥ 18；数据源为同花顺 iFinD MCP，密钥三选一：环境变量 `IFIND_MCP_KEY` / 项目根 `ifind_key.json` / `config.json` 的 `ifindSkillPath`(设为`"auto"`时按 `~/.zcode|~/.claude|~/.agents` 自动发现)
 - 跑 `node monitor.js` 若报"未找到 iFinD 密钥"，先解决密钥再继续，不要改代码绕过
 
 ## 用户话术 → 命令映射
