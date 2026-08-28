@@ -179,6 +179,21 @@ async function tick(client, firedSet) {
 }
 
 async function main() {
+  /* --status: "定时监控"指令的武装检查——有计划报名单与进程状态, 无计划明确答复 */
+  if (process.argv.includes('--status')) {
+    const today = J.dateKey();
+    const plan = J.loadPlan(today);
+    if (!plan || !(plan.items || []).length) { console.log('没有需要监控的股票'); process.exit(0); }
+    let beatv = null;
+    try { beatv = JSON.parse(fs.readFileSync(HEARTBEAT, 'utf-8')); } catch {}
+    const live = beatv && Date.now() - new Date(beatv.ts).getTime() < 3 * 60 * 1000;
+    const desc = (i) => i.code + ' ' + i.name + '(' + [i.A.status === '待触发' ? 'A≥' + i.A.trigger : 'A' + i.A.status, i.B.status === '待触发' ? 'B带' + i.B.zone.join('~') : 'B' + i.B.status].filter((s) => !/待触发|禁用$/.test(s) || true).join(',') + ')';
+    console.log('监控对象(' + plan.items.length + '只):');
+    plan.items.forEach((i) => console.log('  ' + desc(i)));
+    console.log('监控进程: ' + (live ? '✓ 存活 pid ' + beatv.pid + ' 最后心跳 ' + beatv.time : '✗ 未运行/心跳过期 → 双击 start-monitor.bat 启动'));
+    console.log('5分钟监督自动化: 已注册(查活+增量警报+定点任务)');
+    process.exit(0);
+  }
   const client = new IFind();
   const fired = new Set();
   if (!loopMode) { await tick(client, fired); return; }

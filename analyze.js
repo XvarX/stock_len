@@ -31,8 +31,34 @@ async function main() {
 
   /* ---------- 竞价校准 ---------- */
   if (mode === 'auction') {
-    const plan = J.loadPlan(today);
-    if (!plan) die(`未找到今日(${today})作战计划, 请先在夜间生成`);
+    let plan = J.loadPlan(today);
+    if (!plan) {
+      // 无记录 → 自动走一次找龙头, 当日生效
+      console.log('未找到今日计划 → 自动执行找龙头(--scan)...');
+      const sc = await P.scanLeaders(f);
+      if (sc.halted) die('找龙头被拦截: ' + sc.reason);
+      if (!sc.candidates.length) die('候选池为空, 无可操作标的');
+      const result = await P.deepAnalyze(f, sc.candidates);
+      const valid = result.stocks.filter((s) => !s.error && s.ds && isFinite(s.ds.close));
+      const payload = {
+        generatedAt: new Date().toISOString(), sourceMode: 'auction-fallback-scan',
+        scanSource: (sc.boards || []).map((b) => `${b.name}(集群${b.hits})`).join(', '),
+        temperature: { overall: result.ctx.temp.overall, label: result.ctx.temp.label },
+        benchCum20: result.ctx.benchCum20,
+        guardLines: ['温度计=' + result.ctx.temp.label + (result.ctx.temp.overall === 'defend' ? ': 建议空仓' : result.ctx.temp.overall === 'watch' ? ': 轻仓试错' : ': 正常操作')],
+        targetNote: '竞价时段自动生成, 当日生效',
+        targetDate: today,
+        items: valid.map((st) => ({
+          code: st.code, name: st.name, board: st.board || null,
+          prevClose: Number(st.cards.refClose.toFixed(2)), score: st.score.composite,
+          A: st.cards.A, B: st.cards.B,
+          notes: [st.score.grade, st.ds.posTag, ...(st.cards.guardNotes || [])],
+        })),
+      };
+      J.savePlan(payload.targetDate, payload);
+      fs.writeFileSync(path.join(__dirname, 'journal', 'plans', payload.targetDate + '.json'), JSON.stringify(payload, null, 2), 'utf-8');
+      plan = payload;
+    }
     if (plan.targetDate && String(plan.targetDate) !== today)
       die(`计划的交易目标日是 ${plan.targetDate}, 与今天(${today})不符——请在对应交易日早上再校准`);
     const snap = await f.snapshot(plan.items.map((x) => x.code));
