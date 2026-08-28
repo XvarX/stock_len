@@ -1,11 +1,11 @@
 @echo off
 chcp 65001 >nul
-title stock-lens 盘中监控哨兵
+title stock-lens intraday monitor
 cd /d %~dp0
 echo ============================================
-echo  stock-lens 盘中监控已启动 (每60秒一轮)
-echo  触发买点时本窗口会弹出强提醒并蜂鸣
-echo  关闭本窗口即停止监控
+echo  stock-lens intraday monitor started (60s per tick)
+echo  Buy-point hits will BEEP and print a banner here
+echo  Close this window to stop monitoring
 echo ============================================
 node monitor.js --loop
 pause
