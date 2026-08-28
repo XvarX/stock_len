@@ -44,6 +44,108 @@ function agg(rets) {
   };
 }
 
+async function replayPlanMode() {
+  // --plan: 重放"昨夜计划"——用今日分钟数据逐分钟执行计划中的操作点(无前视: 计划卡源自≤昨日数据)
+  const client = new IFind();
+  const f = new Fetchers(client, null);
+  const today = J.dateKey();
+  const plan = J.loadPlan(today);
+  if (!plan || !(plan.items || []).length) { console.log('未找到今日计划'); process.exit(0); }
+  const GCONF = Object.assign({}, G.DEFAULTS, CFG.confirm || {});
+  const codes = plan.items.map((i) => i.code);
+  const intradayAll = {};
+  for (let i = 0; i < codes.length; i += 10) {
+    try { Object.assign(intradayAll, await f.intraday(codes.slice(i, i + 10), { fresh: true })); } catch (e) { console.log('分时失败:', e.message); }
+  }
+  // 大盘分时(市场门重放)
+  let idxPrev = { SH: null, CYB: null }, idxBars = { SH: [], CYB: [] };
+  try {
+    const snap = await f.benchmarkSnapshot();
+    if (snap['上证指数'] && isFinite(snap['上证指数'].latest)) idxPrev.SH = snap['上证指数'].latest / (1 + snap['上证指数'].pct / 100);
+    if (snap['创业板指'] && isFinite(snap['创业板指'].latest)) idxPrev.CYB = snap['创业板指'].latest / (1 + snap['创业板指'].pct / 100);
+    const r = await client.biz('index', 'index_highfreq_quotes', { symbols: '上证指数,创业板指', indicators: '收盘价', data_mode: 'highfreq', interval: 1 });
+    if (r.ok && r.inner?.tables) {
+      const head = r.inner.tables[0].map((h) => (h.includes('简称') ? 'name' : h === 'time' ? 'time' : 'close'));
+      const sym = r.inner.sympolMap || {};
+      for (const cells of r.inner.tables.slice(1)) {
+        const o = Object.fromEntries(head.map((h, i2) => [h, cells[i2] ?? '']));
+        const nm = sym[o.code || ''] || o.name || '';
+        const bar = { time: String(o.time || '').slice(-5), close: parseFloat(o.close) };
+        if (!bar.time || !isFinite(bar.close)) continue;
+        if (/上证/.test(nm)) idxBars.SH.push(bar); else if (/创业/.test(nm)) idxBars.CYB.push(bar);
+      }
+    }
+  } catch (e) { console.log('指数分时不可用, 市场门退化放行'); }
+  const marketOkAt = (t) => {
+    const pctAt = (arr, prev) => { if (!prev || !arr.length) return null; const b = arr.find((x) => x.time >= t) || arr[arr.length - 1]; return (b.close / prev - 1) * 100; };
+    const a = pctAt(idxBars.SH, idxPrev.SH), b = pctAt(idxBars.CYB, idxPrev.CYB);
+    return Math.max(isFinite(a) ? a : -99, isFinite(b) ? b : -99) >= (isFinite(GCONF.marketPctMin) ? GCONF.marketPctMin : 0);
+  };
+
+  const trades = [];
+  for (const it of plan.items) {
+    const tag = plan.vintage?.[it.code] || (plan.scanSource ? '盘后扫描' : '昨夜计划');
+    const bars = intradayAll[it.code] || [];
+    if (bars.length < 10) { trades.push({ code: it.code, name: it.name, tag, skip: '分时不足' }); continue; }
+    if (it.A.status !== '待触发' && it.B.status !== '待触发') { trades.push({ code: it.code, name: it.name, tag, skip: '卡片' + it.A.status }); continue; }
+    const naiveHi = it.A.trigger / 1.003; // 由触发价反推20日高
+    let naiveEntry = null, entry = null, maxDD = 0, riskTouch = false;
+    let nearMiss = null;
+    for (let i = 0; i < bars.length; i++) {
+      const bar = bars[i];
+      const p = bar.close;
+      const t = String(bar.time).slice(-5);
+      const barsSoFar = bars.slice(0, i + 1);
+      if (!naiveEntry && p >= naiveHi) naiveEntry = { price: p, time: t };
+      if (it.A.status === '待触发' && p >= it.A.trigger) {
+        const r = G.evaluateA({ item: it, price: p, bars: barsSoFar, conf: GCONF, marketOk: marketOkAt(t), sectorOk: true });
+        if (!r.pass && (!nearMiss || r.failed.length < nearMiss.fails.length)) nearMiss = { fails: r.failed.join('/'), time: t, price: p };
+        if (!entry && r.pass) entry = { kind: 'A', price: p, time: t };
+      }
+      if (!entry && it.B.status === '待触发' && p >= it.B.zone[0] && p <= it.B.zone[1]) {
+        const r = G.evaluateB({ item: it, price: p, openPrice: bars[0].open, bars: barsSoFar, conf: GCONF, marketOk: marketOkAt(t), sectorOk: true });
+        if (r.pass) entry = { kind: 'B', price: p, time: t };
+      }
+      if (entry) maxDD = Math.min(maxDD, p / entry.price - 1);
+    }
+    const closeP = bars[bars.length - 1].close;
+    const openP = bars[0].open;
+    if (entry) trades.push({ code: it.code, name: it.name, tag, kind: entry.kind, time: entry.time, price: entry.price, closeP, dayReturn: +((closeP / entry.price - 1) * 100).toFixed(2), maxDD: +(maxDD * 100).toFixed(2), riskTouch, nearMiss, naiveDay: naiveEntry ? +((closeP / naiveEntry.price - 1) * 100).toFixed(2) : null, openDay: +((closeP / openP - 1) * 100).toFixed(2) });
+    else trades.push({ code: it.code, name: it.name, tag, noEntry: true, nearMiss, naiveDay: naiveEntry ? +((closeP / naiveEntry.price - 1) * 100).toFixed(2) : null, openDay: +((closeP / openP - 1) * 100).toFixed(2) });
+  }
+
+  const strat = agg(trades.filter((t) => t.kind).map((t) => t.dayReturn));
+  const naive = agg(trades.filter((t) => isFinite(t.naiveDay)).map((t) => t.naiveDay));
+  const openBuy = agg(trades.filter((t) => isFinite(t.openDay)).map((t) => t.openDay));
+  const L = [];
+  L.push(`# 计划重放回测(昨夜选龙头→今日执行) · ${today}`);
+  L.push(`计划来源: ${plan.scanSource || '昨夜分析'} | 温度计: ${plan.temperature.label} | 票数: ${plan.items.length}`);
+  L.push('');
+  L.push('## 对照: 三种执行方式');
+  L.push('| 执行方式 | 笔数 | 胜率 | 均值收益% | 最差% | 最好% |');
+  L.push('|---|---|---|---|---|---|');
+  L.push(`| ①计划操作点(确认链触发) | ${strat.n} | ${strat.win ?? '-'}% | ${strat.mean ?? '-'} | ${strat.min ?? '-'} | ${strat.max ?? '-'} |`);
+  L.push(`| ②开盘无脑买(竞价接力) | ${openBuy.n} | ${openBuy.win ?? '-'}% | ${openBuy.mean ?? '-'} | ${openBuy.min ?? '-'} | ${openBuy.max ?? '-'} |`);
+  L.push(`| ③昨日收盘无脑买(打板持有) | ${naive.n} | ${naive.win ?? '-'}% | ${naive.mean ?? '-'} | ${naive.min ?? '-'} | ${naive.max ?? '-'} |`);
+  L.push('');
+  L.push('## 逐票');
+  L.push('| 代码 | 名称 | 选入来源 | 卡 | 触发时刻 | 买入价 | 收盘 | 当日收益% | 最大浮亏% | 触风控线 | 开盘买入收益% | 昨收买入收益% |');
+  L.push('|---|---|---|---|---|---|---|---|---|---|---|---|');
+  for (const t of trades) {
+    L.push(t.skip ? `| ${t.code} | ${t.name} | ${t.tag} | - | - | - | - | - | - | - | ${t.openDay ?? '-'} | ${t.naiveDay ?? '-'} |`
+      : t.kind ? `| ${t.code} | ${t.name} | ${t.tag} | ${t.kind} | ${t.time} | ${t.price} | ${t.closeP} | ${t.dayReturn} | ${t.maxDD} | ${t.riskTouch ? '⚠是' : '否'} | ${t.openDay} | ${t.naiveDay} |`
+      : `| ${t.code} | ${t.name} | ${t.tag} | 未触发(最近卡点:${t.nearMiss ? t.nearMiss.fails + '@' + t.nearMiss.time : '价未到'}) | - | - | - | - | - | - | ${t.openDay ?? '-'} | ${t.naiveDay ?? '-'} |`);
+  }
+  L.push('\n> 口径: ①=五关/七关确认通过才按触发分钟收盘价买入; ②③=无择时基准。T+1当日浮盈不可兑现。单日样本。');
+  const dir = path.join(__dirname, 'reports', 'backtest');
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, `${today}_计划重放.md`), L.join('\n'), 'utf-8');
+  fs.writeFileSync(path.join(dir, `${today}_计划重放.json`), JSON.stringify({ version: 'stock-lens-backtest/2', mode: 'plan', trades, strat, openBuy, naive }, null, 2), 'utf-8');
+  console.log('\n' + L.join('\n'));
+  console.log('\n' + client.timingTable());
+  console.log('✓ 计划重放报告: reports/backtest/');
+}
+
 async function main() {
   const client = new IFind();
   const f = new Fetchers(client, null); // 回测数据不落缓存: 分时需全量, 日线批查自带当日键
@@ -291,4 +393,5 @@ async function main() {
   console.log('✓ 回测报告: reports/backtest/');
 }
 
-main().catch((e) => { console.error('✗', e.stack || e.message); process.exit(1); });
+if (process.argv.includes('--plan')) replayPlanMode().catch((e) => { console.error('✗', e.stack || e.message); process.exit(1); });
+else main().catch((e) => { console.error('✗', e.stack || e.message); process.exit(1); });

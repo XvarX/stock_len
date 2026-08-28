@@ -1,0 +1,161 @@
+{
+  "version": "stock-lens-backtest/2",
+  "mode": "plan",
+  "trades": [
+    {
+      "code": "600641",
+      "name": "先导基电",
+      "tag": "昨夜计划",
+      "noEntry": true,
+      "nearMiss": null,
+      "naiveDay": null,
+      "openDay": -0.57
+    },
+    {
+      "code": "603319",
+      "name": "美湖股份",
+      "tag": "昨夜计划",
+      "noEntry": true,
+      "nearMiss": null,
+      "naiveDay": null,
+      "openDay": -8.59
+    },
+    {
+      "code": "002980",
+      "name": "华盛昌",
+      "tag": "昨夜计划",
+      "noEntry": true,
+      "nearMiss": null,
+      "naiveDay": null,
+      "openDay": -3
+    },
+    {
+      "code": "600330",
+      "name": "天通股份",
+      "tag": "昨夜计划",
+      "noEntry": true,
+      "nearMiss": {
+        "fails": "站稳5分钟",
+        "time": "09:38",
+        "price": 29.98
+      },
+      "naiveDay": -3.47,
+      "openDay": -2.89
+    },
+    {
+      "code": "603002",
+      "name": "宏昌电子",
+      "tag": "昨夜计划",
+      "noEntry": true,
+      "nearMiss": null,
+      "naiveDay": null,
+      "openDay": 1.55
+    },
+    {
+      "code": "002952",
+      "name": "亚世光电",
+      "tag": "昨夜计划",
+      "kind": "B",
+      "time": "09:38",
+      "price": 20,
+      "closeP": 21.79,
+      "dayReturn": 8.95,
+      "maxDD": -0.5,
+      "riskTouch": false,
+      "nearMiss": {
+        "fails": "追深/未封板/放量比",
+        "time": "15:00",
+        "price": 21.79
+      },
+      "naiveDay": 5.78,
+      "openDay": 9.55
+    },
+    {
+      "code": "002212",
+      "name": "天融信",
+      "tag": "昨夜计划",
+      "skip": "卡片禁用"
+    },
+    {
+      "code": "603171",
+      "name": "税友股份",
+      "tag": "昨夜计划",
+      "skip": "卡片禁用"
+    },
+    {
+      "code": "600479",
+      "name": "千金药业",
+      "tag": "昨夜计划",
+      "noEntry": true,
+      "nearMiss": {
+        "fails": "追深",
+        "time": "09:35",
+        "price": 13.26
+      },
+      "naiveDay": 9.8,
+      "openDay": 12.97
+    },
+    {
+      "code": "002902",
+      "name": "铭普光磁",
+      "tag": "昨夜计划",
+      "noEntry": true,
+      "nearMiss": {
+        "fails": "追深/VWAP/放量比/量结构",
+        "time": "15:00",
+        "price": 27.33
+      },
+      "naiveDay": 1.56,
+      "openDay": 8.11
+    },
+    {
+      "code": "000560",
+      "name": "我爱我家",
+      "tag": "昨夜计划",
+      "skip": "卡片禁用"
+    },
+    {
+      "code": "002279",
+      "name": "久其软件",
+      "tag": "昨夜计划",
+      "skip": "卡片禁用"
+    },
+    {
+      "code": "002396",
+      "name": "星网锐捷",
+      "tag": "昨夜计划",
+      "noEntry": true,
+      "nearMiss": {
+        "fails": "追深",
+        "time": "09:36",
+        "price": 36.28
+      },
+      "naiveDay": 4.83,
+      "openDay": 8.55
+    }
+  ],
+  "strat": {
+    "n": 1,
+    "win": 100,
+    "mean": 8.95,
+    "med": 8.95,
+    "min": 8.95,
+    "max": 8.95
+  },
+  "openBuy": {
+    "n": 9,
+    "win": 56,
+    "mean": 2.85,
+    "med": 1.55,
+    "min": -8.59,
+    "max": 12.97
+  },
+  "naive": {
+    "n": 5,
+    "win": 80,
+    "mean": 3.7,
+    "med": 4.83,
+    "min": -3.47,
+    "max": 9.8
+  }
+}
