@@ -92,7 +92,7 @@ async function tick(client, firedSet) {
     if (it.B.status === '待触发' && it.prevClose > 0) {
       const execStop = Math.max(it.B.stop, limitDownPrice(it.code, it.prevClose) + 0.02); // 止损必须可执行(高于跌停价)
       if (p < execStop && !firedSet.has('RISK·破止损|' + it.code)) {
-        R.alertBanner('⚠风险·跌破关键位', it.code, it.name, `现价 ${p} < 可执行止损 ${execStop}(原计划${it.B.stop}), 放弃低吸勿接飞刀`);
+        R.alertBanner('⚠风险·风控线(次日离场预案)', it.code, it.name, `现价 ${p} < 风控线 ${execStop} | T+1: 今日买入者不可卖——勿补仓, 明日开盘执行离场; 旧仓位可今日处理`);
         process.stdout.write('\x07');
         J.appendAlert(today, { kind: 'RISK·破止损', code: it.code, text: `现价${p}<可执行止损${execStop.toFixed(2)}` });
         firedSet.add('RISK·破止损|' + it.code);
@@ -192,12 +192,12 @@ async function tick(client, firedSet) {
       const stabOk = !CONF.bRequireStabilize || cf.stabilized === true;
       const volOk = !isFinite(cf.retractVolRatio) || cf.retractVolRatio <= CONF.bRetractVolRatioMax;
       if (stabOk && volOk) {
-        R.alertBanner('B·进入低吸带', it.code, it.name, `现价 ${p} 位于 ${it.B.zone[0]}~${it.B.zone[1]} | 分钟连升+缩量(cf量比${isFinite(cf.retractVolRatio) ? cf.retractVolRatio.toFixed(2) : '-'}) | 止损 ≤${it.B.stop}`);
+        R.alertBanner('B·进入低吸带(企稳v2)', it.code, it.name, `现价 ${p} 位于 ${it.B.zone[0]}~${it.B.zone[1]} | 低点抬升+收复15分钟VWAP(${cf.vwap15 ? cf.vwap15.toFixed(2) : '-'})+缩量(${isFinite(cf.retractVolRatio) ? cf.retractVolRatio.toFixed(2) : '-'}) | 风控线 ${it.B.stop} | 注意T+1: 今日买入明日才能卖`);
         process.stdout.write('\x07');
-        J.appendAlert(today, { kind: 'B·低吸带', code: it.code, text: `${p}入带${it.B.zone.join('~')},缩量确认` });
+        J.appendAlert(today, { kind: 'B·低吸带', code: it.code, text: `${p}入带${it.B.zone.join('~')},企稳v2确认` });
         firedSet.add(key);
       } else if (!firedSet.has('INFO·待确认|' + it.code)) {
-        console.log(`[${hm}] ⏳ ${it.code} ${it.name} 入低吸带但企稳确认不足(连升:${cf.stabilized}, 缩量比:${cf.retractVolRatio?.toFixed?.(2)}), 待确认`);
+        console.log(`[${hm}] ⏳ ${it.code} ${it.name} 入低吸带但企稳v2不足(抬升+收复VWAP15:${cf.reclaimVwap15}, 缩量比:${cf.retractVolRatio?.toFixed?.(2)}), 待确认`);
         J.appendAlert(today, { kind: 'INFO·待确认', code: it.code, text: `入带${p}未确认企稳` });
         firedSet.add('INFO·待确认|' + it.code);
       }
