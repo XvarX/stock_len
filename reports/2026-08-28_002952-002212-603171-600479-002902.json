@@ -1,0 +1,562 @@
+{
+  "version": "stock-lens-report/1",
+  "generatedAt": "2026-08-28T02:54:35.631Z",
+  "mode": "scan",
+  "scanSource": "数字经济(大涨集群8只), 人工智能(大涨集群8只)",
+  "dataDate": "20260827",
+  "temperature": {
+    "overall": "watch",
+    "label": "观望",
+    "detail": [
+      {
+        "name": "上证指数",
+        "close": 3956.571,
+        "aboveMa20": true,
+        "mom5": 1.35,
+        "regime": "attack"
+      },
+      {
+        "name": "创业板指",
+        "close": 3473.3547,
+        "aboveMa20": false,
+        "mom5": -0.55,
+        "regime": "defend"
+      }
+    ]
+  },
+  "benchmarks": {
+    "cum20": 7.4
+  },
+  "stocks": [
+    {
+      "code": "002952",
+      "name": "亚世光电",
+      "industry": "电子",
+      "board": "新能源汽车",
+      "score": {
+        "composite": 59,
+        "grade": "中（观察）"
+      },
+      "position": {
+        "tag": "高位整理",
+        "percentile": 73,
+        "ma": {
+          "m5": 19.690000000000015,
+          "m10": 19.852999999999998,
+          "m20": 19.695999999999994,
+          "m60": 20.660333333333327
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 44.20009336711579,
+          "d": 48.21659933903734,
+          "j": 36.167081423272705
+        },
+        "rsi14": 50.13847069355708,
+        "volumeHealth": {
+          "upDownRatio": 0.95890544929508,
+          "accel": 0.9612781765181225
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 21.14417480241748,
+        "giveupRatio": 0,
+        "earlyVolShare": 100,
+        "high": 21.79,
+        "highTime": "09:51",
+        "low": 19.71,
+        "lowTime": "09:31",
+        "bestRuns": [
+          {
+            "till": "09:53",
+            "gain": 8.570004982561041
+          },
+          {
+            "till": "09:54",
+            "gain": 8.192651439920539
+          },
+          {
+            "till": "09:52",
+            "gain": 6.989515726410378
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 20.51,
+          "zone": [
+            20.51,
+            20.86
+          ],
+          "stop": 19.48,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 19.85,
+          "zone": [
+            19.65,
+            20.05
+          ],
+          "stop": 19.25
+        }
+      },
+      "notes": []
+    },
+    {
+      "code": "002212",
+      "name": "天融信",
+      "industry": "计算机",
+      "board": "芯片概念",
+      "score": {
+        "composite": 45,
+        "grade": "弱（放弃）"
+      },
+      "position": {
+        "tag": "破位下行",
+        "percentile": 15,
+        "ma": {
+          "m5": 6.21,
+          "m10": 6.3080000000000025,
+          "m20": 6.5495,
+          "m60": 6.1235000000000035
+        },
+        "macdCross": "dead",
+        "kdj": {
+          "k": 30.48435773700486,
+          "d": 21.24154251458157,
+          "j": 48.96998818185144
+        },
+        "rsi14": 49.47798600376054,
+        "volumeHealth": {
+          "upDownRatio": 1.5541157307436726,
+          "accel": 0.5575541371329549
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 6.8335851594856445,
+        "giveupRatio": 0,
+        "earlyVolShare": 100,
+        "high": 6.93,
+        "highTime": "09:35",
+        "low": 6.58,
+        "lowTime": "09:34",
+        "bestRuns": [
+          {
+            "till": "09:38",
+            "gain": 4.380664652567967
+          },
+          {
+            "till": "09:37",
+            "gain": 3.782148260211793
+          },
+          {
+            "till": "09:35",
+            "gain": 3.003003003003002
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "禁用",
+          "trigger": 8.03,
+          "zone": [
+            8.03,
+            8.17
+          ],
+          "stop": 7.63,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "禁用",
+          "keyLevel": 6.31,
+          "zone": [
+            6.25,
+            6.37
+          ],
+          "stop": 6.12
+        }
+      },
+      "notes": [
+        "个股破位：仅观望",
+        "综合评分45(弱): 不建议参与"
+      ]
+    },
+    {
+      "code": "603171",
+      "name": "税友股份",
+      "industry": "计算机",
+      "board": "中国AI 50",
+      "score": {
+        "composite": 27,
+        "grade": "弱（放弃）"
+      },
+      "position": {
+        "tag": "破位下行",
+        "percentile": 6,
+        "ma": {
+          "m5": 41.16199999999998,
+          "m10": 42.836000000000006,
+          "m20": 45.1875,
+          "m60": 42.42083333333332
+        },
+        "macdCross": "dead",
+        "kdj": {
+          "k": 7.502482835982551,
+          "d": 11.529568301249697,
+          "j": -0.5516880945517393
+        },
+        "rsi14": 37.932854072272654,
+        "volumeHealth": {
+          "upDownRatio": 1.1893001939910148,
+          "accel": 0.41889939658456393
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 43.03101205866484,
+        "giveupRatio": 0,
+        "earlyVolShare": 100,
+        "high": 44.34,
+        "highTime": "10:04",
+        "low": 40.91,
+        "lowTime": "09:33",
+        "bestRuns": [
+          {
+            "till": "09:38",
+            "gain": 3.790087463556868
+          },
+          {
+            "till": "09:39",
+            "gain": 3.571428571428581
+          },
+          {
+            "till": "09:37",
+            "gain": 2.9741589468551988
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "禁用",
+          "trigger": 52.26,
+          "zone": [
+            52.26,
+            53.14
+          ],
+          "stop": 49.65,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "禁用",
+          "keyLevel": 42.84,
+          "zone": [
+            42.41,
+            43.27
+          ],
+          "stop": 41.55
+        }
+      },
+      "notes": [
+        "个股破位：仅观望",
+        "综合评分27(弱): 不建议参与"
+      ]
+    },
+    {
+      "code": "600479",
+      "name": "千金药业",
+      "industry": "医药生物",
+      "board": "工业互联网",
+      "score": {
+        "composite": 89,
+        "grade": "强（可操作）"
+      },
+      "position": {
+        "tag": "创阶段新高",
+        "percentile": 100,
+        "ma": {
+          "m5": 10.543999999999997,
+          "m10": 10.256999999999998,
+          "m20": 10.0515,
+          "m60": 9.826166666666666
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 79.71474030537415,
+          "d": 67.05119851890963,
+          "j": 105.04182387830318
+        },
+        "rsi14": 83.52230438550889,
+        "volumeHealth": {
+          "upDownRatio": 1.1436946714832237,
+          "accel": 1.480589625764862
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 12.79740965944571,
+        "giveupRatio": 0,
+        "earlyVolShare": 100,
+        "high": 13.33,
+        "highTime": "09:35",
+        "low": 11.8,
+        "lowTime": "09:30",
+        "bestRuns": [
+          {
+            "till": "09:35",
+            "gain": 12.372881355932197
+          },
+          {
+            "till": "09:36",
+            "gain": 9.802306425041184
+          },
+          {
+            "till": "09:39",
+            "gain": 4.54901960784313
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 12.16,
+          "zone": [
+            12.16,
+            12.36
+          ],
+          "stop": 11.55,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 10.26,
+          "zone": [
+            10.16,
+            10.36
+          ],
+          "stop": 10.93
+        }
+      },
+      "notes": []
+    },
+    {
+      "code": "002902",
+      "name": "铭普光磁",
+      "industry": "通信",
+      "board": "海工装备",
+      "score": {
+        "composite": 84,
+        "grade": "强（可操作）"
+      },
+      "position": {
+        "tag": "高位整理",
+        "percentile": 83,
+        "ma": {
+          "m5": 24.61999999999999,
+          "m10": 25.009000000000007,
+          "m20": 24.384999999999977,
+          "m60": 26.93433333333334
+        },
+        "macdCross": "golden",
+        "kdj": {
+          "k": 46.142960539742404,
+          "d": 45.827821438008954,
+          "j": 46.773238743209305
+        },
+        "rsi14": 54.01244923095113,
+        "volumeHealth": {
+          "upDownRatio": 1.2269885449298088,
+          "accel": 0.4781014211999123
+        },
+        "blowoff": null
+      },
+      "intraday": {
+        "vwap": 27.568015587935413,
+        "giveupRatio": 0,
+        "earlyVolShare": 100,
+        "high": 28.13,
+        "highTime": "09:35",
+        "low": 25.2,
+        "lowTime": "09:31",
+        "bestRuns": [
+          {
+            "till": "09:35",
+            "gain": 10.838607594936711
+          },
+          {
+            "till": "09:36",
+            "gain": 10.22727272727273
+          },
+          {
+            "till": "09:37",
+            "gain": 9.66861598440547
+          }
+        ]
+      },
+      "cards": {
+        "A": {
+          "status": "待触发",
+          "trigger": 26.71,
+          "zone": [
+            26.71,
+            27.16
+          ],
+          "stop": 25.37,
+          "holdDays": "1-5"
+        },
+        "B": {
+          "status": "待触发",
+          "keyLevel": 25.01,
+          "zone": [
+            24.76,
+            25.26
+          ],
+          "stop": 24.26
+        }
+      },
+      "notes": []
+    }
+  ],
+  "guards": [
+    "观望档: 轻仓试错"
+  ],
+  "risks": [
+    "价量推断非资金实测",
+    "趋势最强不等于连板预期",
+    "仅供研究参考不构成投资建议"
+  ],
+  "scanMeta": {
+    "emotion": {
+      "regime": "low",
+      "label": "低迷(仅首板先手/轻仓观察, 冰点或退潮待晋级率数据区分)"
+    },
+    "ladder": {
+      "first": 0,
+      "second": 1,
+      "thirdPlus": 0,
+      "max": 2
+    },
+    "leaders": [
+      {
+        "code": "600479",
+        "name": "千金药业",
+        "boards": 2,
+        "firstDate": "20260826",
+        "oneWordToday": false,
+        "broken": false,
+        "clusterHits": 8,
+        "score": 83,
+        "grade": "龙头候选",
+        "parts": {
+          "height": 70,
+          "time": 100,
+          "drive": 100,
+          "quality": 90,
+          "flow": 30
+        },
+        "rank": 1
+      },
+      {
+        "code": "002952",
+        "name": "亚世光电",
+        "boards": 0,
+        "firstDate": null,
+        "oneWordToday": false,
+        "broken": false,
+        "clusterHits": 8,
+        "score": 64,
+        "grade": "梯队成员",
+        "parts": {
+          "height": 40,
+          "time": 50,
+          "drive": 100,
+          "quality": 90,
+          "flow": 60
+        },
+        "rank": 2
+      },
+      {
+        "code": "002212",
+        "name": "天融信",
+        "boards": 0,
+        "firstDate": null,
+        "oneWordToday": false,
+        "broken": false,
+        "clusterHits": 8,
+        "score": 64,
+        "grade": "梯队成员",
+        "parts": {
+          "height": 40,
+          "time": 50,
+          "drive": 100,
+          "quality": 90,
+          "flow": 60
+        },
+        "rank": 3
+      },
+      {
+        "code": "603171",
+        "name": "税友股份",
+        "boards": 0,
+        "firstDate": null,
+        "oneWordToday": false,
+        "broken": false,
+        "clusterHits": 8,
+        "score": 64,
+        "grade": "梯队成员",
+        "parts": {
+          "height": 40,
+          "time": 50,
+          "drive": 100,
+          "quality": 90,
+          "flow": 60
+        },
+        "rank": 4
+      },
+      {
+        "code": "002902",
+        "name": "铭普光磁",
+        "boards": 0,
+        "firstDate": null,
+        "oneWordToday": false,
+        "broken": false,
+        "clusterHits": 8,
+        "score": 64,
+        "grade": "梯队成员",
+        "parts": {
+          "height": 40,
+          "time": 50,
+          "drive": 100,
+          "quality": 90,
+          "flow": 60
+        },
+        "rank": 5
+      }
+    ],
+    "catalyst": {
+      "count": 6,
+      "headline": "数字货币概念爆发，新晨科技盘中涨停"
+    },
+    "catalystBoard": "数字经济",
+    "limitUpCount": 24,
+    "scannedAt": "2026-08-28T02:54:35.624Z"
+  },
+  "timing": {
+    "totalMs": 1026,
+    "calls": [
+      {
+        "name": "stock.search_stocks",
+        "ok": true,
+        "ms": 204
+      },
+      {
+        "name": "news.search_news",
+        "ok": true,
+        "ms": 822
+      }
+    ]
+  }
+}

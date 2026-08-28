@@ -35,7 +35,7 @@ async function main() {
     if (!plan) {
       // 无记录 → 自动走一次找龙头, 当日生效
       console.log('未找到今日计划 → 自动执行找龙头(--scan)...');
-      const sc = await P.scanLeaders(f);
+      sc = await P.scanLeaders(f);
       if (sc.halted) die('找龙头被拦截: ' + sc.reason);
       if (!sc.candidates.length) die('候选池为空, 无可操作标的');
       const result = await P.deepAnalyze(f, sc.candidates);
@@ -95,10 +95,11 @@ async function main() {
 
   /* ---------- 夜间分析 / 自动扫描 ---------- */
   let scanSource = null;
+  let sc = null;
   let finalCodes = codes;
   if (mode === 'scan') {
     console.log('扫描热度板块与龙头候选...');
-    const sc = await P.scanLeaders(f);
+    sc = await P.scanLeaders(f);
     if (sc.halted) die(sc.reason);
     scanSource = sc.boards.map((b) => `${b.name}(大涨集群${b.hits}只)`).join(', ');
     console.log(`热点: ${scanSource}`);
@@ -110,6 +111,41 @@ async function main() {
 
   console.log(`深度分析 ${finalCodes.length} 只票...`);
   const result = await P.deepAnalyze(f, finalCodes);
+
+  // 龙头识别v2: 情绪定位 + 连板梯队 + 五维龙头榜 + 催化确认
+  if (mode === 'scan' && sc) {
+    const LU = require('./lib/limitup');
+    const ok = result.stocks.filter((s) => !s.error && s.boardStreak);
+    const streaks = ok.map((s) => s.boardStreak);
+    const maxBoards = Math.max(0, ...streaks.map((x) => x.boards));
+    const emotion = LU.classifyEmotion(sc.rawGainCount || finalCodes.length, maxBoards);
+    const ladder = LU.ladderStats(streaks);
+    // 首板日时序排名(早=高分)
+    const dates = [...new Set(streaks.map((x) => x.firstDate).filter(Boolean))].sort();
+    const leaders = ok.map((st) => {
+      const bs = st.boardStreak;
+      const clusterHits = (sc.boards.find((b) => (sc.conceptsOf?.[st.code] || []).includes(b.name)) || {}).hits || 0;
+      const ls = LU.leaderScore({
+        boards: bs.boards,
+        firstDateRank: dates.indexOf(bs.firstDate),
+        clusterHits,
+        oneWordToday: bs.oneWordToday,
+        broken: st.ds.boardQ ? st.ds.boardQ.broken : false,
+        flowToday: st.ds.flow ? st.ds.flow.today : NaN,
+      });
+      return { code: st.code, name: st.name, boards: bs.boards, firstDate: bs.firstDate, oneWordToday: bs.oneWordToday,
+        broken: st.ds.boardQ ? st.ds.boardQ.broken : false, clusterHits, ...ls };
+    }).sort((a, b) => b.score - a.score);
+    leaders.forEach((l, i) => (l.rank = i + 1));
+    let catalyst = null;
+    const topBoard = (sc.boards[0] || {}).name;
+    if (topBoard) catalyst = await f.newsCatalyst(topBoard, 3);
+    result.scanMeta = {
+      emotion, ladder, leaders, catalyst, catalystBoard: topBoard,
+      limitUpCount: sc.rawGainCount || finalCodes.length,
+      scannedAt: new Date().toISOString(),
+    };
+  }
 
   // 报告落盘: 标准化 .md + .json 成对
   const title = mode === 'scan' ? `热度龙头分析 · ${today}` : `深度分析 · ${today}`;
@@ -140,7 +176,7 @@ async function main() {
       prevClose: Number(st.cards.refClose.toFixed ? st.cards.refClose.toFixed(2) : st.cards.refClose),
       score: st.score.composite,
       A: st.cards.A, B: st.cards.B,
-      notes: [`${st.score.grade}`, st.ds.posTag, ...(st.cards.guardNotes || [])],
+      notes: [`${st.score.grade}`, st.ds.posTag, ...(st.boardStreak && st.boardStreak.boards ? [`${st.boardStreak.boards}连板(首板${st.boardStreak.firstDate})`] : []), ...(st.cards.guardNotes || [])],
     })),
   };
   // 合并同日已有计划: 新运行的票以最新状态为准, 未涉及的旧票原样保留(避免多轮分析互相覆盖)

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-27T16:07:59.832Z",
-  "sourceMode": "night",
-  "scanSource": null,
+  "generatedAt": "2026-08-28T02:54:35.632Z",
+  "sourceMode": "scan",
+  "scanSource": "数字经济(大涨集群8只), 人工智能(大涨集群8只)",
   "temperature": {
     "overall": "watch",
     "label": "观望"
@@ -210,6 +210,224 @@
           16.58
         ],
         "stop": 15.93,
+        "holdDays": "1-5",
+        "confirm": "缩量回踩带内后收出企稳阳线(回调段量<近5日均量×0.8)",
+        "desc": "回踩关键位低吸"
+      },
+      "notes": [
+        "强（可操作）",
+        "高位整理"
+      ]
+    },
+    {
+      "code": "002952",
+      "name": "亚世光电",
+      "board": "新能源汽车",
+      "prevClose": 19.81,
+      "score": 59,
+      "A": {
+        "status": "待触发",
+        "forbidReasons": [],
+        "trigger": 20.51,
+        "zone": [
+          20.51,
+          20.86
+        ],
+        "stop": 19.48,
+        "holdDays": "1-5",
+        "confirm": "盘中价≥触发价 且 分时站上VWAP 且 板块同向上涨",
+        "desc": "突破20日高点20.45"
+      },
+      "B": {
+        "status": "待触发",
+        "forbidReasons": [],
+        "keyLevels": {
+          "MA10": 19.85,
+          "platformLow": 18.1
+        },
+        "key": "MA10为主",
+        "zone": [
+          19.65,
+          20.05
+        ],
+        "stop": 19.25,
+        "holdDays": "1-5",
+        "confirm": "缩量回踩带内后收出企稳阳线(回调段量<近5日均量×0.8)",
+        "desc": "回踩关键位低吸"
+      },
+      "notes": [
+        "中（观察）",
+        "高位整理"
+      ]
+    },
+    {
+      "code": "002212",
+      "name": "天融信",
+      "board": "芯片概念",
+      "prevClose": 6.3,
+      "score": 45,
+      "A": {
+        "status": "禁用",
+        "forbidReasons": [
+          "个股破位：仅观望"
+        ],
+        "trigger": 8.03,
+        "zone": [
+          8.03,
+          8.17
+        ],
+        "stop": 7.63,
+        "holdDays": "1-5",
+        "confirm": "盘中价≥触发价 且 分时站上VWAP 且 板块同向上涨",
+        "desc": "突破20日高点8.01"
+      },
+      "B": {
+        "status": "禁用",
+        "forbidReasons": [
+          "个股破位：仅观望"
+        ],
+        "keyLevels": {
+          "MA10": 6.31,
+          "platformLow": 6.01
+        },
+        "key": "MA10为主",
+        "zone": [
+          6.25,
+          6.37
+        ],
+        "stop": 6.12,
+        "holdDays": "1-5",
+        "confirm": "缩量回踩带内后收出企稳阳线(回调段量<近5日均量×0.8)",
+        "desc": "回踩关键位低吸"
+      },
+      "notes": [
+        "弱（放弃）",
+        "破位下行",
+        "个股破位：仅观望",
+        "综合评分45(弱): 不建议参与"
+      ]
+    },
+    {
+      "code": "603171",
+      "name": "税友股份",
+      "board": "中国AI 50",
+      "prevClose": 40.31,
+      "score": 27,
+      "A": {
+        "status": "禁用",
+        "forbidReasons": [
+          "个股破位：仅观望"
+        ],
+        "trigger": 52.26,
+        "zone": [
+          52.26,
+          53.14
+        ],
+        "stop": 49.65,
+        "holdDays": "1-5",
+        "confirm": "盘中价≥触发价 且 分时站上VWAP 且 板块同向上涨",
+        "desc": "突破20日高点52.1"
+      },
+      "B": {
+        "status": "禁用",
+        "forbidReasons": [
+          "个股破位：仅观望"
+        ],
+        "keyLevels": {
+          "MA10": 42.84,
+          "platformLow": 39.6
+        },
+        "key": "MA10为主",
+        "zone": [
+          42.41,
+          43.27
+        ],
+        "stop": 41.55,
+        "holdDays": "1-5",
+        "confirm": "缩量回踩带内后收出企稳阳线(回调段量<近5日均量×0.8)",
+        "desc": "回踩关键位低吸"
+      },
+      "notes": [
+        "弱（放弃）",
+        "破位下行",
+        "个股破位：仅观望",
+        "综合评分27(弱): 不建议参与"
+      ]
+    },
+    {
+      "code": "600479",
+      "name": "千金药业",
+      "board": "工业互联网",
+      "prevClose": 12.12,
+      "score": 89,
+      "A": {
+        "status": "待触发",
+        "forbidReasons": [],
+        "trigger": 12.16,
+        "zone": [
+          12.16,
+          12.36
+        ],
+        "stop": 11.55,
+        "holdDays": "1-5",
+        "confirm": "盘中价≥触发价 且 分时站上VWAP 且 板块同向上涨",
+        "desc": "突破20日高点12.12"
+      },
+      "B": {
+        "status": "待触发",
+        "forbidReasons": [],
+        "keyLevels": {
+          "MA10": 10.26,
+          "platformLow": 9.61
+        },
+        "key": "MA10为主",
+        "zone": [
+          10.16,
+          10.36
+        ],
+        "stop": 10.93,
+        "holdDays": "1-5",
+        "confirm": "缩量回踩带内后收出企稳阳线(回调段量<近5日均量×0.8)",
+        "desc": "回踩关键位低吸"
+      },
+      "notes": [
+        "强（可操作）",
+        "创阶段新高",
+        "2连板(首板20260826)"
+      ]
+    },
+    {
+      "code": "002902",
+      "name": "铭普光磁",
+      "board": "海工装备",
+      "prevClose": 25.57,
+      "score": 84,
+      "A": {
+        "status": "待触发",
+        "forbidReasons": [],
+        "trigger": 26.71,
+        "zone": [
+          26.71,
+          27.16
+        ],
+        "stop": 25.37,
+        "holdDays": "1-5",
+        "confirm": "盘中价≥触发价 且 分时站上VWAP 且 板块同向上涨",
+        "desc": "突破20日高点26.63"
+      },
+      "B": {
+        "status": "待触发",
+        "forbidReasons": [],
+        "keyLevels": {
+          "MA10": 25.01,
+          "platformLow": 20.51
+        },
+        "key": "MA10为主",
+        "zone": [
+          24.76,
+          25.26
+        ],
+        "stop": 24.26,
         "holdDays": "1-5",
         "confirm": "缩量回踩带内后收出企稳阳线(回调段量<近5日均量×0.8)",
         "desc": "回踩关键位低吸"
